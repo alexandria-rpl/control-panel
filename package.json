@@ -26,7 +26,7 @@
     "@ckeditor/ckeditor5-angular": "^1.0.1",
     "@ckeditor/ckeditor5-build-classic": "^11.2.0",
     "@fortawesome/angular-fontawesome": "^0.3.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.3.1",
     "@ng-bootstrap/ng-bootstrap": "^4.0.0",
     "@ngtools/webpack": "^7.1.2",

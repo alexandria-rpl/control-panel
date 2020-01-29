@@ -15,7 +15,6 @@ import { MatTableModule,
   MatCheckboxModule,
   MatMenuModule,
   MatDividerModule} from '@angular/material';
-import { OverlayContainer } from '@angular/cdk/overlay';
 
 import { AppComponent } from './app.component';
 
@@ -85,7 +84,6 @@ const appRoutes: Routes = [
     FileUploadModule,
     MatMenuModule,
     MatDividerModule,
-    OverlayContainer,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(
@@ -107,8 +105,4 @@ const appRoutes: Routes = [
     SendMessageComponent
   ]
 })
-export class AppModule {
-  constructor(overlayContainer: OverlayContainer) {
-    overlayContainer.getContainerElement().classList.add('unicorn-dark-theme');
-  }
-}
+
