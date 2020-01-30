@@ -1,15 +1,12 @@
-# Stanley-Vanilla
+# Control Panel
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
 ## Purpose
 
-This project was created to minimize the amount of time spent scaffolding, installing/managing dependencies, and preparing the environment prior to beginning a new angular project.
-Use only for web development and desktop applications. See Stanley-Vanilla-mobile for a mobile version of the project. 
+Library Control Panel 
 
-## Project Dendencies
-
-Inside of this project you will find tools necessary to build various types of projects. Below is a list of those dependencies along with their version numbers.
+## Project Dependencies
 
 ### CKEditor
     "@ckeditor/ckeditor5-angular": "^1.0.1"
