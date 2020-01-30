@@ -15,7 +15,8 @@ import { MatTableModule,
   MatCheckboxModule,
   MatMenuModule,
   MatDividerModule} from '@angular/material';
-import { OverlayContainer } from '@angular/cdk/overlay';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 
@@ -85,9 +86,9 @@ const appRoutes: Routes = [
     FileUploadModule,
     MatMenuModule,
     MatDividerModule,
-    OverlayContainer,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }),
@@ -108,7 +109,4 @@ const appRoutes: Routes = [
   ]
 })
 export class AppModule {
-  constructor(overlayContainer: OverlayContainer) {
-    overlayContainer.getContainerElement().classList.add('unicorn-dark-theme');
-  }
 }
