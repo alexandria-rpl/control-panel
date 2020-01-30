@@ -3,8 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="eac7dc0f-e38b-47e4-8442-97957305bc28" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+=======
+>>>>>>> cd72613abbdff70a6c635a0ace724e003e2da68e
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +18,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1X4vQuxqQ2Fb8kcWLd1TGMknsBa" />
+=======
+  <component name="ProjectId" id="1X5yTGiGLkJ1yh1ifz3ofPNJvid" />
+>>>>>>> cd72613abbdff70a6c635a0ace724e003e2da68e
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,7 +40,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+<<<<<<< HEAD
     <property name="ts.external.directory.path" value="C:\Users\billy\workspace\control-panel\node_modules\typescript\lib" />
+=======
+    <property name="ts.external.directory.path" value="C:\Users\lahjeq\workspace\control-panel\node_modules\typescript\lib" />
+>>>>>>> cd72613abbdff70a6c635a0ace724e003e2da68e
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -43,6 +54,21 @@
       <recent name="C:\Users\lahjeqii\workspace\swiper-app\src\app\components" />
     </key>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+>>>>>>> cd72613abbdff70a6c635a0ace724e003e2da68e
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -57,7 +83,11 @@
       <workItem from="1565556059413" duration="579000" />
       <workItem from="1565558845750" duration="1633000" />
       <workItem from="1565597131843" duration="76000" />
+<<<<<<< HEAD
       <workItem from="1580318202017" duration="2955000" />
+=======
+      <workItem from="1580350258877" duration="2610000" />
+>>>>>>> cd72613abbdff70a6c635a0ace724e003e2da68e
     </task>
     <servers />
   </component>

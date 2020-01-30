@@ -14,8 +14,10 @@ import { MatTableModule,
   MatButtonModule,
   MatCheckboxModule,
   MatMenuModule,
+  MatToolbarModule,
   MatDividerModule} from '@angular/material';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 
 /* Site Components Goes Here */
@@ -42,6 +44,9 @@ import { SendMessageComponent } from './components/modal-templates/send-message/
 /* Services */
 import { ModalCommunicationService } from './services/modal-communication-service/modal-communication.service';
 import { ComponentCommunicationService } from './services/component-communication-service/component-communication.service';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { ThreeDemensionalPrintingManagementComponent } from './components/control-panel-pages/three-demensional-printing-management/three-demensional-printing-management.component';
+import { PrintingDataTableComponent } from './components/control-panel-pages/three-demensional-printing-management/printing-data-table/printing-data-table.component';
 
 /* Router Linkage Goes Here */
 const appRoutes: Routes = [
@@ -67,13 +72,17 @@ const appRoutes: Routes = [
     LoginComponent,
     LogoutComponent,
     ReadMessageComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    ToolbarComponent,
+    ThreeDemensionalPrintingManagementComponent,
+    PrintingDataTableComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CKEditorModule,
     MatTableModule,
+    MatToolbarModule,
     MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
@@ -86,6 +95,7 @@ const appRoutes: Routes = [
     MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }),
@@ -106,3 +116,5 @@ const appRoutes: Routes = [
   ]
 })
 
+export class AppModule {
+}
