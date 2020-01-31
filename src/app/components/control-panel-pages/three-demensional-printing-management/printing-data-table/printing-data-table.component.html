@@ -1,32 +1,47 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+<mat-form-field>
+  <input matNativeControl matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+</mat-form-field>
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-  </ng-container>
+<div class="mat-elevation-z8">
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
+  <table mat-table class="full-width-table" [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="patronName">
+      <th class="data-header" mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td class="data-cell" mat-cell *matCellDef="let row">{{row.patronName}}</td>
+    </ng-container>
 
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-  </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="libraryCard">
+      <th class="data-header" mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td class="data-cell" mat-cell *matCellDef="let row">{{row.libraryCard}}</td> <!--, {{row.last_name}}</td>-->
+    </ng-container>
 
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-  </ng-container>
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th class="data-header" mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td class="data-cell" mat-cell *matCellDef="let row">{{row.email}}</td>
+    </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+    <!-- Birthday Column -->
+    <ng-container matColumnDef="phone">
+      <th class="data-header" mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+      <td class="data-cell" mat-cell *matCellDef="let row">{{row.phone}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tosAgreement">
+      <th class="data-header" mat-header-cell *matHeaderCellDef>TOS Agreement</th>
+      <td class="data-cell" mat-cell *matCellDef="let row">{{row.tosAgreement}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="element-row"></tr>
+  </table>
+
+  <mat-paginator #paginator
+                 [pageIndex]="0"
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10, 25, 50, 100, 250]">
+  </mat-paginator>
+</div>

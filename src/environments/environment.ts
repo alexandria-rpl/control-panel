@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  uat: false,
+  development: true,
+  /*dev environment data services */
+
+  libraryFormServices: 'http://localhost:8080/rpl/api/LibraryFormServices/',
+  sharedStaticDataServices: 'http://localhost:8080/rpl/api/SharedStaticDataServices/',
+
+  clientID: '[set auth0 clientID]',
+  domain: '[set auth0 domain]',
+  callbackURL: '[set auth0 callback url]'
 };
 
 /*

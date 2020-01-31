@@ -1,40 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ChangeDetectorRef, ViewChild} from '@angular/core';
+import { ThreeDimensionalPrintingColor } from '../../../../interfaces/static-data/three-dimensional-printing-color.interface';
+import { ThreeDimensionalPrintingForm } from '../../../../interfaces/library-forms/three-dimensional-printing-form.interface';
+import { environment } from '../../../../../environments/environment';
+import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
-
-/**
- * @title Basic use of `<table mat-table>`
- */
 @Component({
   selector: 'app-printing-data-table',
   templateUrl: './printing-data-table.component.html',
   styleUrls: ['./printing-data-table.component.scss']
 })
 export class PrintingDataTableComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  private threeDimensionalPrintingForms: ThreeDimensionalPrintingForm[];
+
+  constructor(private libraryFormsService,
+              private changeDetectorRef: ChangeDetectorRef) { }
+
+  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
+  displayedColumns: string[] = ['_id', 'patronName', 'libraryCard', 'email', 'phone', 'tosAgreement'];
+
+  /** Initializing Datasource */
+  dataSource: MatTableDataSource<ThreeDimensionalPrintingForm[]> = new MatTableDataSource<ThreeDimensionalPrintingForm[]>();
 
   ngOnInit() {
+    /** Fetch Data */
+    this.getAllPrintingRequestForms();
   }
 
+  /** Filter Action */
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  /** Data Subscription Function */
+  getAllPrintingRequestForms() {
+    this.libraryFormsService.getAllPrintingRequestForms()
+      .subscribe((threeDimensionalPrintingFormList: ThreeDimensionalPrintingForm[]) => {
+        this.threeDimensionalPrintingForms = threeDimensionalPrintingFormList;
+        console.log('Development Environment: ' + environment.development);
+        if (environment.development === true) {
+          console.log(this.threeDimensionalPrintingForms);
+          this.changeDetectorRef.detectChanges();
+        }
+      }, (err) => {
+        if (environment.development === true) {
+         console.log(err);
+        }
+      },
+      () => {
+        this.dataSource = this.threeDimensionalPrintingForms;
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
+      });
+  }
 }
