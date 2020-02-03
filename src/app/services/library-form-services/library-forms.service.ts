@@ -34,15 +34,11 @@ export class LibraryFormsService {
 
   /* 3d printing request forms */
 
-  getThreeDimensionalPrintingRequests() {
+  getThreeDimensionalPrintingRequests(): Observable<ThreeDimensionalPrintingForm[]> {
     const url = this.libraryFormServices + 'getAll3dPrintingRequestForms';
     return this.http.get(url)
-      .map(
-        (response: any) => {
-          const data = response.json();
-          return data;
-        }
-      );
+      .map((response: any) => response.json())
+      .catch( error => Observable.throw(error.json()));
   }
 
   /* End 3d printing request forms */

@@ -77,9 +77,8 @@ import { SendMessageComponent } from './components/modal-templates/send-message/
 import { ModalCommunicationService } from './services/modal-communication-service/modal-communication.service';
 import { ComponentCommunicationService } from './services/component-communication-service/component-communication.service';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { ThreeDemensionalPrintingManagementComponent } from './components/control-panel-pages/three-demensional-printing-management/three-demensional-printing-management.component';
 import { ThreeDimensionalPrintingColorsComponent } from './components/control-panel-pages/three-dimensional-printing-colors/three-dimensional-printing-colors.component';
-import { PrintingManagementDatatableComponent } from './components/control-panel-pages/three-demensional-printing-management/printing-management-datatable/printing-management-datatable.component';
+import {ThreeDimensionalPrintingManagementComponent} from './components/control-panel-pages/three-dimensional-printing-management/three-dimensional-printing-management.component';
 
 /* Router Linkage Goes Here */
 const appRoutes: Routes = [
@@ -107,9 +106,8 @@ const appRoutes: Routes = [
     ReadMessageComponent,
     SendMessageComponent,
     ToolbarComponent,
-    ThreeDemensionalPrintingManagementComponent,
     ThreeDimensionalPrintingColorsComponent,
-    PrintingManagementDatatableComponent
+    ThreeDimensionalPrintingManagementComponent
   ],
   imports: [
     BrowserModule,

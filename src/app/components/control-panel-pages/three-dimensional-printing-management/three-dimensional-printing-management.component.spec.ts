@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ThreeDemensionalPrintingManagementComponent } from './three-demensional-printing-management.component';
+import { ThreeDimensionalPrintingManagementComponent } from './three-dimensional-printing-management.component';
 
 describe('ThreeDemensionalPrintingManagementComponent', () => {
-  let component: ThreeDemensionalPrintingManagementComponent;
-  let fixture: ComponentFixture<ThreeDemensionalPrintingManagementComponent>;
+  let component: ThreeDimensionalPrintingManagementComponent;
+  let fixture: ComponentFixture<ThreeDimensionalPrintingManagementComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ThreeDemensionalPrintingManagementComponent ]
+      declarations: [ ThreeDimensionalPrintingManagementComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ThreeDemensionalPrintingManagementComponent);
+    fixture = TestBed.createComponent(ThreeDimensionalPrintingManagementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
