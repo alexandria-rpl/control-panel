@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {LibraryFormsService} from '../../../services/library-form-services/library-forms.service';
 import {MatTableDataSource, MatPaginator, MatSort} from '@angular/material';
+import * as moment from 'moment';
 
 
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
@@ -27,7 +28,7 @@ export class ThreeDimensionalPrintingManagementComponent implements OnInit {
                                 'pickedUp',
                                 'finalLocation',
                                 'color',
-                                'specialInstructions',
+                                // 'specialInstructions',
                                 'fileName',
                                 'submitted',
                                 'modifiedBy',
@@ -79,4 +80,26 @@ export class ThreeDimensionalPrintingManagementComponent implements OnInit {
 
   }
 
+  boolToYesNo(value: boolean): string {
+    if (value === false) {
+      return 'No';
+    }
+    if (value === true) {
+      return 'Yes';
+    }
+  }
+
+  boolToAcceptedDeclined(value: boolean): string {
+    if (value === false) {
+      return 'Declined';
+    }
+    if (value === true) {
+      return 'Accepted';
+    }
+  }
+
+  simplifyDate(value: Date): String {
+    return moment(value).format('M/D/YYYY HH:mm:ss');
+
+  }
 }

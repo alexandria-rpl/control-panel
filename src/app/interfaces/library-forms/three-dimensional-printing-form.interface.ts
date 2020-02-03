@@ -1,7 +1,7 @@
 export interface ThreeDimensionalPrintingForm {
  _id: string;
- patronName: string;
- libraryCard: string;
+ patron_name: string;
+ library_card: string;
  email: string;
  phone: string;
  tosAgreement: string;
