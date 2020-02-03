@@ -5,7 +5,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
-import {ThreeDimensionalPrintingForm} from '../../interfaces/library-forms/three-dimensional-printing-form.interface';
+import { ThreeDimensionalPrintingForm} from '../../interfaces/library-forms/three-dimensional-printing-form.interface';
+import {ThreeDimensionalPrintingColor} from '../../interfaces/static-data/three-dimensional-printing-color.interface';
 
 
 @Injectable({
@@ -22,7 +23,7 @@ export class LibraryFormsService {
   /* Shared Static Data */
 
   /* 3d request forms */
-  getPrintingColors(): Observable<ThreeDimensionalPrintingForm[]> {
+  getPrintingColors(): Observable<ThreeDimensionalPrintingColor[]> {
     const url = this.sharedStaticDataServices + 'getAll3dPrintingColors';
     return this.http.get(url)
       .map((response: any) => response.json())

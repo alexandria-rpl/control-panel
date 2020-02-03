@@ -11,7 +11,7 @@ export interface ThreeDimensionalPrintingForm {
  color: string;
  specialInstructions: string;
  fileName: string;
- submitted: string; /* date field*/
+ submitted: Date; /* date field*/
  modifiedBy: string;
  printedBy: string;
 }

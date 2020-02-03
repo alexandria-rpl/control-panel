@@ -8,8 +8,8 @@ export const environment = {
   development: true,
   /*dev environment data services */
 
-  libraryFormServices: 'http://localhost:8080/rpl/api/LibraryFormServices/',
-  sharedStaticDataServices: 'http://localhost:8080/rpl/api/SharedStaticDataServices/',
+  libraryFormServices: 'http://localhost:8080/library-form-service/rpl/api/LibraryFormServices/',
+  sharedStaticDataServices: 'http://localhost:8080/static-shared-data-service/rpl/api/SharedStaticDataServices/',
 
   clientID: '[set auth0 clientID]',
   domain: '[set auth0 domain]',
