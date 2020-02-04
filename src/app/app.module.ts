@@ -79,12 +79,17 @@ import { ComponentCommunicationService } from './services/component-communicatio
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ThreeDimensionalPrintingColorsComponent } from './components/control-panel-pages/three-dimensional-printing-colors/three-dimensional-printing-colors.component';
 import {ThreeDimensionalPrintingManagementComponent} from './components/control-panel-pages/three-dimensional-printing-management/three-dimensional-printing-management.component';
+import { ThreeDimensionalPrintingFormComponent } from './components/control-panel-pages/three-dimensional-printing-form/three-dimensional-printing-form.component';
+import {ThreeDimensionalPrintingForm} from './interfaces/library-forms/three-dimensional-printing-form';
 
 /* Router Linkage Goes Here */
 const appRoutes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'home', redirectTo: '/', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent },
+  { path: 'control-panel/printing-management/3D-printing-color-management', component: ThreeDimensionalPrintingColorsComponent },
+  { path: 'control-panel/printing-management/3D-printing-management', component: ThreeDimensionalPrintingColorsComponent },
+  { path: 'control-panel/printing-management/3D-printing-form', component: ThreeDimensionalPrintingForm }
 ];
 
 @NgModule({
@@ -107,7 +112,8 @@ const appRoutes: Routes = [
     SendMessageComponent,
     ToolbarComponent,
     ThreeDimensionalPrintingColorsComponent,
-    ThreeDimensionalPrintingManagementComponent
+    ThreeDimensionalPrintingManagementComponent,
+    ThreeDimensionalPrintingFormComponent
   ],
   imports: [
     BrowserModule,
