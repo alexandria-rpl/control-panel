@@ -1,3 +1,98 @@
-<p>
-  three-dimensional-printing-form works!
-</p>
+<div class="row"></div>
+<div class="jumbotron">
+  <div class="printing-request-header">
+    3D Printing Request Form
+  </div>
+</div>
+<div class="row">
+  <div class="container-fluid">
+    <div class="col"></div>
+    <div class="col">
+      <div class="printing-form-container">
+        <fieldset class="contact-fieldset">
+          <legend class="contact-legend">Contact Information</legend>
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Name">
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Library Card">
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Email Address">
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <input matInput placeholder="Telephone Number">
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <div class="printing-tos">
+              <mat-checkbox>I agree that in submitting this file I am fully complying with any and all library rules and <a (click)="showTOS()">terms of
+                service</a> regarding my use of the 3D Printer.</mat-checkbox>
+            </div>
+          </div>
+        </fieldset>
+        <div class="row"></div>
+        <fieldset class="model-fieldset">
+          <legend class="model-legend">Model Information</legend>
+          <div class="row">
+            <mat-form-field>
+              <mat-select [(value)]="selected" placeholder="Preferred Color">
+                <mat-option value="any">Any</mat-option>
+                <mat-option value="option" *ngFor="let printingColor of printingColorList"
+                            [value]="printingColor._id">{{printingColor.color}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <div class="upload-field">
+              <div class="row">
+              <div class="col-sm-2">
+                <label id="#bb" class="btn">
+                  <fa-icon [icon]="faFolderOpen"></fa-icon>&nbsp;Choose File
+                  <input type="file" file-upload multiple id="File"  [(ngModel)]="printUpload"
+                         (change)="onFileChanged($event)" [ngModelOptions]="{standalone: true}">
+                </label>
+              </div>
+              <div class="col-sm">
+                  <mat-form-field class="file-upload-text">
+                    <input matInput disabled value="{{printUploadText}}">
+                  </mat-form-field>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <textarea matInput placeholder="Notes or Special Instructions"></textarea>
+            </mat-form-field>
+          </div>
+        </fieldset>
+        <div class="row">
+          <div class="reminder-text">
+          Please note that the color setting allows you to express your preferences but we do not guarantee that we will
+          be able to honor your selections. Possible reasons that we may not honor the values selected include lack of material,
+          or that the duration of your print would be too long.
+          </div>
+        </div>
+        <div class="row">
+          <div class="submit-button">
+            <button mat-stroked-button (click)="submitPrintRequest()">Submit Request</button>
+          </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row"></div>
+        <div class="row"></div>
+      </div>
+
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+

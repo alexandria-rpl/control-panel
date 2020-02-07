@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+@import 'palettes';
+
+$library-primary-blue: $palette-libraryblue-500;
+$library-secondary-blue: $palette-librarydarkblue-500;
+$library-light-blue: $palette-librarylightblue-500;
+$library-gray:  $palette-librarygray-500;
+
+$primary: $palette-libraryblue-500;
+$secondary: $library-secondary-blue;
+$base: $palette-librarygray-500;
+$icon:  $palette-librarygray-500;
+$icons:  $palette-librarygray-500;
+$text:  $palette-librarygray-500;
+$slider-min:  $palette-librarygray-500;
+$secondary-text:  $palette-librarygray-500;
+
+

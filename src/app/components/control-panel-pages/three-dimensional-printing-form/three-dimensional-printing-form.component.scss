@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Domine:400,700|Quando&display=swap');
+@import '../../../../sass/palettes';
+jumbotron {
+  width: 100%;
+}
+.printing-request-header {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-size: 3.8rem;
+  color: $palette-libraryblue-500;
+}
+
+.matInput {
+  width: 100%;
+}
+
+.upload-field {
+ width: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.btn {
+  padding-top: 1rem;
+  padding-right: 0;
+  color: $palette-librarygray-500;
+}
+
+.printing-tos {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.mat-checkbox {
+  font-family: "domine", sans-serif, "Tahoma", "Geneva", "Arial";
+}
+
+.mat-form-field {
+  width: 100%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.printing-form-container {
+ width: 100%;
+}
+
+.contact-fieldset {
+  margin-bottom: 1em;
+  border: 2px groove;
+  padding: 1em;
+}
+
+.model-fieldset {
+  margin-bottom: 1em;
+  border: 2px groove;
+  padding: 1em;
+}
+
+.contact-legend {
+  width: 15.4rem;
+  display: block;
+  padding-inline-start: 2px;
+  padding-inline-end: 2px;
+  font-family: "domine", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+  color: $palette-librarygray-500;
+}
+
+.model-legend {
+  width: 14.3rem;
+  display: block;
+  padding-inline-start: 2px;
+  padding-inline-end: 2px;
+  font-family: "domine", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+  color: $palette-librarygray-500;
+}
+
+fieldset {
+  margin: 0 0 1.5rem 0;
+  padding: 0.938rem;
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.35em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+}
+
+.reminder-text {
+  font-family: "domine", sans-serif, "Tahoma", "Geneva", "Arial";
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.submit-button {
+  margin-left: 20%;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.inline-field input,
+.inline-field label {
+  display: inline-block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 11px;
+  line-height: 12px;
+  padding: 3px;
+  margin-bottom: 0; /* I added this after I posted my reply */
+  vertical-align: middle; /* Fixes any weird issues in Firefox and IE */
+}
+.input-group {
+  margin-top: 40px;
+}
+
+.choose-file {
+  width: 2rem;
+}
+.file-upload-text {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: -4rem;
+  width: 106%;
+}

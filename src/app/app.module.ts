@@ -84,7 +84,8 @@ import {ThreeDimensionalPrintingForm} from './interfaces/library-forms/three-dim
 
 /* Router Linkage Goes Here */
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
+  // { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '',  component: ThreeDimensionalPrintingFormComponent },
   { path: 'home', redirectTo: '/', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
   { path: 'control-panel/printing-management/3D-printing-color-management', component: ThreeDimensionalPrintingColorsComponent },

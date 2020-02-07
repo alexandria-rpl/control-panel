@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Domine:400,700&display=swap');
+@import 'variables';
+@import 'library-themes';
+@import 'palettes';
+@include mat-core();
+
+
+/* base styles */
+%library-body {
+  font-family: "domine", sans-serif, "Tahoma", "Geneva", "Arial" !important;
+  font-weight: 400 !important;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  @extend %library-body;
+  //  color: $palette-libraryblue-500 !important;
+  color: $palette-librarygray-500 !important;
+  background-color: #fff !important;
+}
+
+.jumbotron {
+  background-color: #fff !important;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial" !important;
+  font-weight: 400 !important;
+}
+
+.mat-form-field-underline {
+  background-color: $palette-librarygray-500 !important;
+}
+
+.mat-form-field-ripple {
+  background-color: $palette-librarygray-500 !important;
+}
+
+.mat-form-field-label {
+  color: $palette-librarygray-500 !important;
+}
+
+.mat-input-element:disabled {
+  color: $palette-librarygray-200 !important;
+}

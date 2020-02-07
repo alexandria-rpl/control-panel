@@ -1,132 +1,131 @@
-/* For use in src/lib/core/theming/_palette.scss */
-$md-libraryblue: (
-  50 : #e6e9f0,
-  100 : #c0c8d9,
-  200 : #96a3c0,
-  300 : #6c7ea6,
-  400 : #4d6393,
-  500 : #2d4780,
-  600 : #284078,
-  700 : #22376d,
-  800 : #1c2f63,
-  900 : #112050,
-  A100 : #89a2ff,
-  A200 : #5679ff,
-  A400 : #2351ff,
-  A700 : #093dff,
-  contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #ffffff,
-    400 : #ffffff,
-    500 : #ffffff,
-    600 : #ffffff,
-    700 : #ffffff,
-    800 : #ffffff,
-    900 : #ffffff,
-    A100 : #000000,
-    A200 : #ffffff,
-    A400 : #ffffff,
-    A700 : #ffffff,
-  )
-);
+/* For use in _color-definitions.scss */
+$palette-libraryblue:
+  rgb(230, 233, 240)
+  rgb(192, 200, 217)
+  rgb(150, 163, 192)
+  rgb(108, 126, 166)
+  rgb(77, 99, 147)
+  rgb(45, 71, 128)
+  rgb(40, 64, 120)
+  rgb(34, 55, 109)
+  rgb(28, 47, 99)
+  rgb(17, 32, 80)
+  rgb(137, 162, 255)
+  rgb(86, 121, 255)
+  rgb(35, 81, 255)
+  rgb(9, 61, 255)
+;
 
-$md-librarylightblue: (
-  50 : #f3f6fc,
-  100 : #e1e8f8,
-  200 : #cdd9f3,
-  300 : #b9caee,
-  400 : #aabeea,
-  500 : #9bb3e6,
-  600 : #93ace3,
-  700 : #89a3df,
-  800 : #7f9adb,
-  900 : #6d8bd5,
-  A100 : #ffffff,
-  A200 : #ffffff,
-  A400 : #e6edff,
-  A700 : #cddbff,
-  contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #000000,
-    400 : #000000,
-    500 : #000000,
-    600 : #000000,
-    700 : #000000,
-    800 : #000000,
-    900 : #000000,
-    A100 : #000000,
-    A200 : #000000,
-    A400 : #000000,
-    A700 : #000000,
-  )
-);
+$palette-libraryblue-50: nth($palette-libraryblue, 1);
+$palette-libraryblue-100: nth($palette-libraryblue, 2);
+$palette-libraryblue-200: nth($palette-libraryblue, 3);
+$palette-libraryblue-300: nth($palette-libraryblue, 4);
+$palette-libraryblue-400: nth($palette-libraryblue, 5);
+$palette-libraryblue-500: nth($palette-libraryblue, 6);
+$palette-libraryblue-600: nth($palette-libraryblue, 7);
+$palette-libraryblue-700: nth($palette-libraryblue, 8);
+$palette-libraryblue-800: nth($palette-libraryblue, 9);
+$palette-libraryblue-900: nth($palette-libraryblue, 10);
+$palette-libraryblue-A100: nth($palette-libraryblue, 11);
+$palette-libraryblue-A200: nth($palette-libraryblue, 12);
+$palette-libraryblue-A400: nth($palette-libraryblue, 13);
+$palette-libraryblue-A700: nth($palette-libraryblue, 14);
 
-$md-librarydarkblue: (
-  50 : #e3e5e9,
-  100 : #b9bec7,
-  200 : #8b92a2,
-  300 : #5d667c,
-  400 : #3a4660,
-  500 : #172544,
-  600 : #14213e,
-  700 : #111b35,
-  800 : #0d162d,
-  900 : #070d1f,
-  A100 : #5d7cff,
-  A200 : #2a52ff,
-  A400 : #002ef6,
-  A700 : #0029dd,
-  contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #ffffff,
-    400 : #ffffff,
-    500 : #ffffff,
-    600 : #ffffff,
-    700 : #ffffff,
-    800 : #ffffff,
-    900 : #ffffff,
-    A100 : #000000,
-    A200 : #ffffff,
-    A400 : #ffffff,
-    A700 : #ffffff,
-  )
-);
 
-$md-librarygray: (
-  50 : #f2f3f4,
-  100 : #e0e0e3,
-  200 : #cbccd1,
-  300 : #b6b8bf,
-  400 : #a6a8b1,
-  500 : #9699a3,
-  600 : #8e919b,
-  700 : #838691,
-  800 : #797c88,
-  900 : #686b77,
-  A100 : #f1f3fe,
-  A200 : #c1ccfb,
-  A400 : #8aa0ff,
-  A700 : #708bff,
-  contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #000000,
-    400 : #000000,
-    500 : #000000,
-    600 : #000000,
-    700 : #000000,
-    800 : #ffffff,
-    900 : #ffffff,
-    A100 : #000000,
-    A200 : #000000,
-    A400 : #000000,
-    A700 : #000000,
-  )
-);
+$palette-librarylightblue:
+  rgb(243, 246, 252)
+  rgb(225, 232, 248)
+  rgb(205, 217, 243)
+  rgb(185, 202, 238)
+  rgb(170, 190, 234)
+  rgb(155, 179, 230)
+  rgb(147, 172, 227)
+  rgb(137, 163, 223)
+  rgb(127, 154, 219)
+  rgb(109, 139, 213)
+  rgb(255, 255, 255)
+  rgb(255, 255, 255)
+  rgb(230, 237, 255)
+  rgb(205, 219, 255)
+;
+
+$palette-librarylightblue-50: nth($palette-librarylightblue, 1);
+$palette-librarylightblue-100: nth($palette-librarylightblue, 2);
+$palette-librarylightblue-200: nth($palette-librarylightblue, 3);
+$palette-librarylightblue-300: nth($palette-librarylightblue, 4);
+$palette-librarylightblue-400: nth($palette-librarylightblue, 5);
+$palette-librarylightblue-500: nth($palette-librarylightblue, 6);
+$palette-librarylightblue-600: nth($palette-librarylightblue, 7);
+$palette-librarylightblue-700: nth($palette-librarylightblue, 8);
+$palette-librarylightblue-800: nth($palette-librarylightblue, 9);
+$palette-librarylightblue-900: nth($palette-librarylightblue, 10);
+$palette-librarylightblue-A100: nth($palette-librarylightblue, 11);
+$palette-librarylightblue-A200: nth($palette-librarylightblue, 12);
+$palette-librarylightblue-A400: nth($palette-librarylightblue, 13);
+$palette-librarylightblue-A700: nth($palette-librarylightblue, 14);
+
+
+$palette-librarydarkblue:
+  rgb(227, 229, 233)
+  rgb(185, 190, 199)
+  rgb(139, 146, 162)
+  rgb(93, 102, 124)
+  rgb(58, 70, 96)
+  rgb(23, 37, 68)
+  rgb(20, 33, 62)
+  rgb(17, 27, 53)
+  rgb(13, 22, 45)
+  rgb(7, 13, 31)
+  rgb(93, 124, 255)
+  rgb(42, 82, 255)
+  rgb(0, 46, 246)
+  rgb(0, 41, 221)
+;
+
+$palette-librarydarkblue-50: nth($palette-librarydarkblue, 1);
+$palette-librarydarkblue-100: nth($palette-librarydarkblue, 2);
+$palette-librarydarkblue-200: nth($palette-librarydarkblue, 3);
+$palette-librarydarkblue-300: nth($palette-librarydarkblue, 4);
+$palette-librarydarkblue-400: nth($palette-librarydarkblue, 5);
+$palette-librarydarkblue-500: nth($palette-librarydarkblue, 6);
+$palette-librarydarkblue-600: nth($palette-librarydarkblue, 7);
+$palette-librarydarkblue-700: nth($palette-librarydarkblue, 8);
+$palette-librarydarkblue-800: nth($palette-librarydarkblue, 9);
+$palette-librarydarkblue-900: nth($palette-librarydarkblue, 10);
+$palette-librarydarkblue-A100: nth($palette-librarydarkblue, 11);
+$palette-librarydarkblue-A200: nth($palette-librarydarkblue, 12);
+$palette-librarydarkblue-A400: nth($palette-librarydarkblue, 13);
+$palette-librarydarkblue-A700: nth($palette-librarydarkblue, 14);
+
+
+$palette-librarygray:
+  rgb(242, 243, 244)
+  rgb(224, 224, 227)
+  rgb(203, 204, 209)
+  rgb(182, 184, 191)
+  rgb(166, 168, 177)
+  rgb(150, 153, 163)
+  rgb(142, 145, 155)
+  rgb(131, 134, 145)
+  rgb(121, 124, 136)
+  rgb(104, 107, 119)
+  rgb(241, 243, 254)
+  rgb(193, 204, 251)
+  rgb(138, 160, 255)
+  rgb(112, 139, 255)
+;
+
+$palette-librarygray-50: nth($palette-librarygray, 1);
+$palette-librarygray-100: nth($palette-librarygray, 2);
+$palette-librarygray-200: nth($palette-librarygray, 3);
+$palette-librarygray-300: nth($palette-librarygray, 4);
+$palette-librarygray-400: nth($palette-librarygray, 5);
+$palette-librarygray-500: nth($palette-librarygray, 6);
+$palette-librarygray-600: nth($palette-librarygray, 7);
+$palette-librarygray-700: nth($palette-librarygray, 8);
+$palette-librarygray-800: nth($palette-librarygray, 9);
+$palette-librarygray-900: nth($palette-librarygray, 10);
+$palette-librarygray-A100: nth($palette-librarygray, 11);
+$palette-librarygray-A200: nth($palette-librarygray, 12);
+$palette-librarygray-A400: nth($palette-librarygray, 13);
+$palette-librarygray-A700: nth($palette-librarygray, 14);
