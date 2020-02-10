@@ -7,7 +7,7 @@ export const environment = {
   uat: false,
   development: true,
   /*dev environment data services */
-  controlPanelAccessService: 'http://localhost:8080/control-panel-access-service/rpl/api/',
+  controlPanelAccessService: 'http://localhost:8080/control-panel-access-service/rpl/api/ControlPanelAccessServices/',
   libraryFormServices: 'http://localhost:8080/library-form-service/rpl/api/LibraryFormServices/',
   sharedStaticDataServices: 'http://localhost:8080/static-shared-data-service/rpl/api/SharedStaticDataServices/',
 
