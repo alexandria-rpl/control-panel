@@ -113,6 +113,7 @@ const appRoutes: Routes = [
   { path: 'control-panel/control-panel-access/menu-group-management', component: ManageMenuGroupsComponent },
   { path: 'control-panel/control-panel-access/menu-container-management', component: ManageMenuContainersComponent },
   { path: 'control-panel/control-panel-access/menu-management', component: ManageMenusComponent },
+  { path: 'control-panel/control-panel-access/menu-item-management', component: ManageMenuItemsComponent },
   { path: 'control-panel/control-panel-access/branch-management', component: ManageBranchesComponent },
   { path: 'control-panel/control-panel-access/custom-user-management',  component: ManageCustomUsersComponent },
   { path: 'control-panel/control-panel-access/custom-user-menu-item-management', component: ManageCustomUserMenuItemsComponent },

@@ -16,7 +16,7 @@ export class ManagePrivilegesComponent implements OnInit {
   faTrash = faTrash;
 
   dataSource: MatTableDataSource<Privilege>;
-  displayedColumns: string[] = ['privilegeName', 'privilegeDescription'];
+  displayedColumns: string[] = ['privilegeName', 'privilegeDescription', 'actions'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;

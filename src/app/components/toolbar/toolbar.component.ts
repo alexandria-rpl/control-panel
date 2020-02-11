@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle,
+         faBars, } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { User } from '../../interfaces/control-panel-access/user.interface';
-import {UserLogin} from '../../interfaces/authentication/user-login.interface';
-import {ControlPanelAccessService} from '../../services/control-panel-access-service/control-panel-access.service';
-
+import { UserLogin } from '../../interfaces/authentication/user-login.interface';
+import { ControlPanelAccessService } from '../../services/control-panel-access-service/control-panel-access.service';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -13,6 +13,7 @@ import {ControlPanelAccessService} from '../../services/control-panel-access-ser
 export class ToolbarComponent implements OnInit {
 
   faUserCircle = faUserCircle;
+  faBars = faBars;
   profile: User;
 
   /* Creating var now, it will hold the
@@ -36,11 +37,6 @@ export class ToolbarComponent implements OnInit {
   routeToHome() {
     this.router.navigateByUrl('/');
   }
-
-  /* Might be able to delete this block */
-  /*routeToUserGroupManagement() {
-    this.router.navigateByUrl('control-panel/control-panel-access/user-group-management');
-  }*/
 
   routeToUserGroupMenuItemManagement() {
     this.router.navigateByUrl('');
@@ -96,5 +92,13 @@ export class ToolbarComponent implements OnInit {
 
   routeToSystemPrivilegeManagement() {
     this.router.navigateByUrl('control-panel/control-panel-access/privileges-management');
+  }
+
+  routeToMenuItemManagement() {
+    this.router.navigateByUrl('control-panel/control-panel-access/menu-item-management');
+  }
+
+  routeToManageGroup() {
+    this.router.navigateByUrl('control-panel/control-panel-access/user-group-management');
   }
 }

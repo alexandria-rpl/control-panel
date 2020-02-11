@@ -1,40 +1,42 @@
 <mat-toolbar>
 <mat-toolbar-row>
-  <button  (click)="routeToHome()">Rapides Parish Library</button>
-  <span class="example-spacer"></span>
+  <button mat-flat-button class="side-panel-button"><fa-icon [icon]="faBars" class="side-panel-icon"></fa-icon> </button>
+  <button mat-flat-button class="home-button" (click)="routeToHome()">Rapides Parish Library</button>
+  <span class="menu-spacer"></span>
   <!--<mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
   <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>-->
-
-  <button mat-button [matMenuTriggerFor]="users">User Management</button>
+<div class="control-panel-menu">
+  <button mat-button [matMenuTriggerFor]="users">Access Management</button>
 
   <mat-menu #users="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="manageUsers">Manage Users</button>
+    <button mat-menu-item [matMenuTriggerFor]="manageUsers">Manage User Access</button>
     <button mat-menu-item [matMenuTriggerFor]="manageAccess">Manage Menu Access</button>
     <button mat-menu-item (click)="routeToBranchManagement()">Branches</button>
   </mat-menu>
 
   <mat-menu #manageUsers="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="userManagement">Manage User(s)</button>
-    <button mat-menu-item [matMenuTriggerFor]="usegroupManagement">Manage User Group(s)</button>
-    <button mat-menu-item [matMenuTriggerFor]="systemPermissionManagement">Manage Permission(s)</button>
-
+    <button mat-menu-item [matMenuTriggerFor]="userManagement">Manage Users</button>
+    <button mat-menu-item [matMenuTriggerFor]="usegroupManagement">Manage User Groups</button>
+    <button mat-menu-item [matMenuTriggerFor]="systemPermissionManagement">Manage Permissions</button>
   </mat-menu>
 
   <mat-menu #userManagement="matMenu">
-    <button mat-menu-item (click)="routeToUserManagement()">User(s)</button>
-    <button mat-menu-item (click)="routeToCustomUserManagement()">Custom User(s)</button>
-    <button mat-menu-item (click)="routeToCustomUserPrivilegeManagement()">Custom User Privilege(s)</button>
-    <button mat-menu-item (click)="routeToCustomUserMenuItemManagement()">Custom User Menu Item(s)</button>
+    <button mat-menu-item (click)="routeToUserManagement()">Modify Users</button>
+    <button mat-menu-item (click)="routeToCustomUserManagement()">Modify Custom Users</button>
+    <button mat-menu-item (click)="routeToCustomUserPrivilegeManagement()">Modify Custom User Privileges</button>
+    <button mat-menu-item (click)="routeToCustomUserMenuItemManagement()">Modify Custom User Menu Items</button>
   </mat-menu>
 
   <mat-menu #manageAccess="matMenu">
-    <button mat-menu-item (click)="routeToMenuContainerManagement()">Menu Container(s)</button>
-    <button mat-menu-item (click)="routeToMenuManagement()">Menu(s)</button>
-    <button mat-menu-item (click)="routeToMenuGroupManagement()">Menu Group(s)</button>
-    <button mat-menu-item (click)="routeToUserGroupMenuItemManagement()">Menu Item(s)</button>
+    <button mat-menu-item (click)="routeToMenuContainerManagement()">Modify Menu Containers</button>
+    <button mat-menu-item (click)="routeToMenuManagement()">Modify Menus</button>
+    <button mat-menu-item (click)="routeToMenuGroupManagement()">Modify Menu Groups</button>
+    <button mat-menu-item (click)="routeToUserGroupMenuItemManagement()">Modify Group Menu Items</button>
+    <button mat-menu-item (click)="routeToMenuItemManagement()">Modify Menu Items</button>
   </mat-menu>
 
   <mat-menu #usegroupManagement="matMenu">
+    <button mat-menu-item (click)="routeToManageGroup()">Modify Groups</button>
     <button mat-menu-item (click)="routeToManageGroupMembers()">Manage Group Members</button>
     <button mat-menu-item (click)="routeToManageGroupRoles()">Manage Group Roles</button>
     <button mat-menu-item (click)="routeToManageGroupPrivileges()">Manage Group Privileges</button>
@@ -44,5 +46,10 @@
     <button mat-menu-item (click)="routeToSystemRoleManagement()">Manage Roles</button>
     <button mat-menu-item (click)="routeToSystemPrivilegeManagement()">Manage Privileges</button>
   </mat-menu>
+</div>
+  <span class="login-spacer"></span>
+  <div class="login-button">
+    <button mat-flat-button class="login-button"><fa-icon [icon]="faUserCircle" class="login-button-icon"></fa-icon> </button>
+  </div>
 </mat-toolbar-row>
 </mat-toolbar>

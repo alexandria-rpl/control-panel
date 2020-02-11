@@ -19,7 +19,7 @@ export class RoleManagementComponent implements OnInit {
   faTrash = faTrash;
 
   dataSource: MatTableDataSource<Role>;
-  displayedColumns: string[] = ['roleName', 'roleDescription', 'privileges'];
+  displayedColumns: string[] = ['roleName', 'roleDescription', 'privileges', 'actions'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -31,7 +31,6 @@ export class RoleManagementComponent implements OnInit {
 
   ngOnInit() {
     this.getRoles();
-    this.dataSource.paginator = this.paginator;
   }
 
   /** Filter Action */
