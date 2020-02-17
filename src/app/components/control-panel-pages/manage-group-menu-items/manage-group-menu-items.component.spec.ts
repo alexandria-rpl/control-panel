@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageGroupPrivilegesComponent } from './manage-group-privileges.component';
+import { ManageGroupMenuItemsComponent } from './manage-group-menu-items.component';
 
 describe('ManageGroupPrivilegesComponent', () => {
-  let component: ManageGroupPrivilegesComponent;
-  let fixture: ComponentFixture<ManageGroupPrivilegesComponent>;
+  let component: ManageGroupMenuItemsComponent;
+  let fixture: ComponentFixture<ManageGroupMenuItemsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageGroupPrivilegesComponent ]
+      declarations: [ ManageGroupMenuItemsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageGroupPrivilegesComponent);
+    fixture = TestBed.createComponent(ManageGroupMenuItemsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

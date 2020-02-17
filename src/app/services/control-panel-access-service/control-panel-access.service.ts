@@ -67,4 +67,32 @@ export class ControlPanelAccessService {
       .map((response: any) => response.json())
     .catch(error => Observable.throw(error.json()));
   }
+
+  getAllUserGroups() {
+    const url = this.controlPanelAccessService + 'getAllUserGroups';
+    return this.http.get(url)
+      .map((response: any) => response.json())
+    .catch(error => Observable.throw(error.json()));
+  }
+
+  getAllUnAssignedUsers() {
+    const url = this.controlPanelAccessService + 'getAllUnassignedUsers';
+    return this.http.get(url)
+      .map((response: any) => response.json())
+    .catch(error => Observable.throw(error()));
+  }
+
+  getAllAssignedUsers() {
+    const url = this.controlPanelAccessService + 'getAllAssignedUsers';
+    return this.http.get(url)
+      .map((response: any) => response.json())
+      .catch(error => Observable.throw(error()));
+  }
+
+  getUserGroupById(groupId: string) {
+    const url = `${this.controlPanelAccessService}getUserGroupById/${groupId}`;
+    return this.http.get(url)
+      .map((response: any) => response.json())
+      .catch(error => Observable.throw(error()));
+  }
 }

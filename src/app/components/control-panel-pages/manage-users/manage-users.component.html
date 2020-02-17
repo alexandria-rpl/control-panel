@@ -49,6 +49,19 @@
           <th mat-header-cell *matHeaderCellDef>User Name</th>
           <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
         </ng-container>
+        <ng-container matColumnDef="assigned">
+          <th mat-header-cell *matHeaderCellDef>Assigned</th>
+          <td mat-cell *matCellDef="let element"> {{booleanToText(element.assigned)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="customUser">
+          <th mat-header-cell *matHeaderCellDef>Custom User</th>
+          <td mat-cell *matCellDef="let element"> {{booleanToText(element.customUser)}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="active">
+          <th mat-header-cell *matHeaderCellDef>Active</th>
+          <td mat-cell *matCellDef="let element"> {{booleanToText(element.active)}} </td>
+        </ng-container>
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Actions</th>
           <td mat-cell *matCellDef="let element">

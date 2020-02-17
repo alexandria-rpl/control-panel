@@ -82,8 +82,8 @@ export class ToolbarComponent implements OnInit {
     this.router.navigateByUrl('control-panel/control-panel-access/group-role-management');
   }
 
-  routeToManageGroupPrivileges() {
-    this.router.navigateByUrl('control-panel/control-panel-access/group-privilege-management');
+  routeToManageGroupMenuItems() {
+    this.router.navigateByUrl('control-panel/control-panel-access/group-menu-item-management');
   }
 
   routeToSystemRoleManagement() {

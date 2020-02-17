@@ -18,7 +18,7 @@ export class ManageMenuItemsComponent implements OnInit {
   faTrash = faTrash;
 
   dataSource: MatTableDataSource<MenuItem>;
-  displayedColumns: string[] = ['menuItemName', 'menuItemDescription', 'positionNumber', 'url', 'isActive', 'isVisible', 'actions'];
+  displayedColumns: string[] = ['menuItemName', 'menuItemDescription', 'componentName', 'url', 'active', 'visible', 'actions'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -59,5 +59,19 @@ export class ManageMenuItemsComponent implements OnInit {
 
   deleteConfirmation(element: Privilege) {
 
+  }
+
+  booleanToText(value: Boolean): String {
+    console.log(value);
+    let returnValue = '';
+    if (value === false ) {
+      returnValue = 'No';
+      return returnValue;
+    }
+
+    if (value === true ) {
+      returnValue = 'Yes';
+      return returnValue;
+    }
   }
 }

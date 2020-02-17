@@ -18,7 +18,7 @@ export class ManageUsersComponent implements OnInit {
   faTrash = faTrash;
 
   dataSource: MatTableDataSource<User>;
-  displayedColumns: string[] = ['userName', 'actions'];
+  displayedColumns: string[] = ['userName', 'assigned', 'customUser', 'active', 'actions'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -58,5 +58,19 @@ export class ManageUsersComponent implements OnInit {
 
   deleteConfirmation(element: Privilege) {
 
+  }
+
+  booleanToText(value: Boolean): String {
+    console.log(value);
+    let returnValue = '';
+    if (value === false ) {
+      returnValue = 'No';
+      return returnValue;
+    }
+
+    if (value === true ) {
+      returnValue = 'Yes';
+      return returnValue;
+    }
   }
 }

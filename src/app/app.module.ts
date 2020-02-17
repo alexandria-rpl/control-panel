@@ -95,16 +95,17 @@ import { ManageCustomUsersComponent } from './components/control-panel-pages/man
 import { ControlPanelHomeComponent } from './components/control-panel-pages/control-panel-home/control-panel-home.component';
 import { ManageCustomUserMenuItemsComponent } from './components/control-panel-pages/manage-custom-user-menu-items/manage-custom-user-menu-items.component';
 import { ManageGroupRolesComponent } from './components/control-panel-pages/manage-group-roles/manage-group-roles.component';
-import { ManageGroupPrivilegesComponent } from './components/control-panel-pages/manage-group-privileges/manage-group-privileges.component';
+import { ManageGroupMenuItemsComponent } from './components/control-panel-pages/manage-group-menu-items/manage-group-menu-items.component';
 import { ManageGroupMembersComponent } from './components/control-panel-pages/manage-group-members/manage-group-members.component';
 import { ManageCustomUserPrivilegesComponent } from './components/control-panel-pages/manage-custom-user-privileges/manage-custom-user-privileges.component';
+import { ManageControlPanelHomeComponent } from './components/control-panel-pages/manage-control-panel-home/manage-control-panel-home.component';
 
 /* Router Linkage Goes Here */
 const appRoutes: Routes = [
   // { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'control-panel', component: ControlPanelHomeComponent, data: { title: 'Rapides Parish Library'} },
   { path: 'control-panel/printing-management/3D-printing-color-management', component: ThreeDimensionalPrintingColorsComponent },
-  { path: 'control-panel/printing-management/3D-printing-management', component: ThreeDimensionalPrintingColorsComponent },
+  { path: 'control-panel/printing-management/3D-printing-management', component: ThreeDimensionalPrintingManagementComponent },
   { path: 'control-panel/printing-management/3D-printing-form', component: ThreeDimensionalPrintingForm },
   { path: 'control-panel/control-panel-access/role-management', component: RoleManagementComponent },
   { path: 'control-panel/control-panel-access/user-group-management', component: ManageUserGroupsComponent },
@@ -119,7 +120,7 @@ const appRoutes: Routes = [
   { path: 'control-panel/control-panel-access/custom-user-menu-item-management', component: ManageCustomUserMenuItemsComponent },
   { path: 'control-panel/control-panel-access/custom-user-privilege-management', component: ManageCustomUserPrivilegesComponent },
   { path: 'control-panel/control-panel-access/group-role-management', component: ManageGroupRolesComponent },
-  { path: 'control-panel/control-panel-access/group-privilege-management', component: ManageGroupPrivilegesComponent },
+  { path: 'control-panel/control-panel-access/group-menu-item-management', component: ManageGroupMenuItemsComponent },
   { path: 'control-panel/control-panel-access/group-member-management', component: ManageGroupMembersComponent },
   { path: '', redirectTo: '/control-panel', pathMatch: 'full' },
   { path: 'home', redirectTo: '/control-panel', pathMatch: 'full' },
@@ -162,9 +163,10 @@ const appRoutes: Routes = [
     ControlPanelHomeComponent,
     ManageCustomUserMenuItemsComponent,
     ManageGroupRolesComponent,
-    ManageGroupPrivilegesComponent,
+    ManageGroupMenuItemsComponent,
     ManageGroupMembersComponent,
-    ManageCustomUserPrivilegesComponent
+    ManageCustomUserPrivilegesComponent,
+    ManageControlPanelHomeComponent
   ],
   imports: [
     BrowserModule,

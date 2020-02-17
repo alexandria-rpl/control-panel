@@ -14,7 +14,7 @@
   <div class="col-sm-1"></div>
   <div class="col">
     <mat-form-field>
-      <mat-label>Select group to modify members</mat-label>
+      <mat-label>Select group to modify menu items</mat-label>
       <mat-select #selectedUserGroup (selectionChange)="getGroupInformation(selectedUserGroup.value)">
         <mat-option *ngFor="let group of userGroups" [value]="group">
           {{group.groupName}}
@@ -30,16 +30,16 @@
   <div class="col">
     <mat-card class="unassigned-group-members">
       <mat-card-header>
-        <mat-card-title>Assign Role(s)</mat-card-title>
+        <mat-card-title>Assign Menu Item(s)</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <mat-selection-list #selectedUnassignedRoles>
-          <mat-list-option *ngFor="let unassignedRole of unassignedRoles">
-            {{unassignedRole.roleName}}
+        <mat-selection-list #selectedMenuItems>
+          <mat-list-option *ngFor="let menuItem of menuItems">
+            {{menuItem.menuItemName}}
           </mat-list-option>
         </mat-selection-list>
         <p>
-          Un-assigned users selected: {{selectedUnassignedRoles.selectedOptions.selected.length}}
+          Un-assigned menu items selected: {{selectedMenuItems.selectedOptions.selected.length}}
         </p>
       </mat-card-content>
       <mat-card-actions>
@@ -58,16 +58,16 @@
   <div class="col">
     <mat-card class="assigned-group-members">
       <mat-card-header>
-        <mat-card-title>Remove Role(s)</mat-card-title>
+        <mat-card-title>Remove Menu Item(s)</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <mat-selection-list #assignedusers>
-          <mat-list-option *ngFor="let assignedUser of assignedUsers">
-            {{assignedUser}}
+        <mat-selection-list #selectedAssignedMenuItems>
+          <mat-list-option *ngFor="let assignedMenuItem of currentUserGroupMenuItems">
+            {{assignedMenuItem}}
           </mat-list-option>
         </mat-selection-list>
         <p>
-          Assigned users selected: {{assignedusers.selectedOptions.selected.length}}
+          Assigned users selected: {{selectedAssignedMenuItems.selectedOptions.selected.length}}
         </p>
       </mat-card-content>
       <mat-card-actions>

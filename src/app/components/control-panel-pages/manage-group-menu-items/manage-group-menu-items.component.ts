@@ -2,18 +2,18 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {UserGroup} from '../../../interfaces/control-panel-access/user-group.interface';
 import {User} from '../../../interfaces/control-panel-access/user.interface';
 import {ControlPanelAccessService} from '../../../services/control-panel-access-service/control-panel-access.service';
-import {Role} from '../../../interfaces/control-panel-access/role.interface';
+import {MenuItem} from '../../../interfaces/control-panel-access/menu-item.interface';
 
 @Component({
-  selector: 'app-manage-group-roles',
-  templateUrl: './manage-group-roles.component.html',
-  styleUrls: ['./manage-group-roles.component.scss']
+  selector: 'app-manage-group-menu-items',
+  templateUrl: './manage-group-menu-items.component.html',
+  styleUrls: ['./manage-group-menu-items.component.scss']
 })
-export class ManageGroupRolesComponent implements OnInit {
+export class ManageGroupMenuItemsComponent implements OnInit {
 
   userGroups: UserGroup[] = [];
-  currentUserGroup: UserGroup = null;
-  unassignedRoles: Role[] = [];
+  currentUserGroupMenuItems: MenuItem[] = null;
+  menuItems: MenuItem[] = [];
   assignedUsers: User[] = [];
 
   constructor(private controlPanelAccessService: ControlPanelAccessService,
@@ -21,7 +21,7 @@ export class ManageGroupRolesComponent implements OnInit {
 
   ngOnInit() {
     this.getAllGroups();
-    this.getAllGroupRoles();
+    this.getAllMenuItems();
   }
 
   private getAllGroups() {
@@ -35,14 +35,18 @@ export class ManageGroupRolesComponent implements OnInit {
       });
   }
 
-  private getAllGroupRoles() {
-    this.controlPanelAccessService.getAllRoles()
-      .subscribe((roleList: Role[]) => {
-        this.unassignedRoles = roleList;
-        console.log(this.unassignedRoles);
+  private getAllMenuItems() {
+    this.controlPanelAccessService.getAllMenuItems()
+      .subscribe((menuItemList: MenuItem[]) => {
+        this.menuItems = menuItemList;
+        console.log(this.menuItems);
         this.changeDetectorRef.detectChanges();
       }, (err) => {
         console.log(err);
       });
+  }
+
+  getGroupInformation(group: UserGroup) {
+    this.currentUserGroupMenuItems = group.menuItems;
   }
 }
