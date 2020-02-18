@@ -6,6 +6,9 @@ import { User } from '../../../interfaces/control-panel-access/user.interface';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import {Privilege} from '../../../interfaces/control-panel-access/privilege.interface';
+import {BooleanList} from '../../../interfaces/boolean-list/boolean-list.interface';
+
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-manage-users',
@@ -27,6 +30,17 @@ export class ManageUsersComponent implements OnInit {
               private changeDetectorRef: ChangeDetectorRef) { }
 
   private users: User[];
+  private errorMessage;
+
+  private booleanlist: BooleanList[] = [
+    {name: 'True', value: true},
+    {name: 'False', value: false}
+  ];
+
+  userName: string;
+  assigned: boolean;
+  custom: boolean;
+  active: boolean;
 
   ngOnInit() {
     this.getAllUsers();
@@ -61,7 +75,6 @@ export class ManageUsersComponent implements OnInit {
   }
 
   booleanToText(value: Boolean): String {
-    console.log(value);
     let returnValue = '';
     if (value === false ) {
       returnValue = 'No';
@@ -72,5 +85,25 @@ export class ManageUsersComponent implements OnInit {
       returnValue = 'Yes';
       return returnValue;
     }
+  }
+
+  onSubmit(newUserForm: NgForm) {
+    let newUser: User = null;
+
+    if (newUserForm.valid) {
+      newUser = newUserForm.value;
+      this.controlPanelAccessService.addNewUser(newUser)
+        .subscribe(response => {
+        }, (err) => {
+          this.errorMessage = err;
+        }, () => {
+          this.getAllUsers();
+          this.resetForm(newUserForm);
+        });
+    }
+  }
+
+  resetForm(newUserForm: NgForm) {
+    newUserForm.resetForm();
   }
 }

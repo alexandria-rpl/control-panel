@@ -10,6 +10,7 @@ import { Privilege } from '../../interfaces/control-panel-access/privilege.inter
 import { User } from '../../interfaces/control-panel-access/user.interface';
 import { Branch } from '../../interfaces/control-panel-access/branch.interface';
 import { MenuItem } from '../../interfaces/control-panel-access/menu-item.interface';
+import {UserGroup} from '../../interfaces/control-panel-access/user-group.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -26,20 +27,48 @@ export class ControlPanelAccessService {
     const url = this.controlPanelAccessService + 'getAllRoles';
     return this.http.get(url)
       .map((response: any) => response.json())
-      .catch(error => Observable.throw(error.json()));
+    .catch(error => Observable.throw(error.json()));
   }
 
+  addNewRole(role: Role): Observable<any> {
+    const url = this.controlPanelAccessService + 'addNewRole';
+    return this.http.post(url, role)
+      .map(this.extractData)
+    .catch(this.handleErrorObservable);
+  }
   /* Privilege Management */
   getAllPrivileges(): Observable<Privilege[]> {
     const url = this.controlPanelAccessService + 'getAllPrivileges';
     return this.http.get(url)
       .map((response: any) => response.json())
-      .catch(error => Observable.throw(error.json()));
+    .catch(error => Observable.throw(error.json()));
+  }
+
+  addNewPrivilege(privilege: Privilege): Observable<any> {
+    const url = this.controlPanelAccessService + 'addNewPrivilege';
+    return this.http.post(url, privilege)
+      .map(this.extractData)
+    .catch(this.handleErrorObservable);
   }
 
   /* User Management */
   getAllUsers(): Observable<User[]> {
     const url = this.controlPanelAccessService + 'getAllUsers';
+    return this.http.get(url)
+      .map((response: any) => response.json())
+    .catch(error => Observable.throw(error.json()));
+  }
+
+  addNewUser(user: User): Observable<any> {
+    const url = this.controlPanelAccessService + 'addNewUser';
+    console.log(user);
+    return this.http.post(url, user)
+      .map(this.extractData)
+    .catch(this.handleErrorObservable);
+  }
+
+  getAllCustomUsers() {
+    const url = this.controlPanelAccessService + 'getAllCustomUsers';
     return this.http.get(url)
       .map((response: any) => response.json())
     .catch(error => Observable.throw(error.json()));
@@ -68,11 +97,27 @@ export class ControlPanelAccessService {
     .catch(error => Observable.throw(error.json()));
   }
 
+  addNewMenuItem(menuItem: MenuItem): Observable<any> {
+    const url = this.controlPanelAccessService + 'addNewMenuItem';
+    console.log(menuItem);
+    return this.http.post(url, menuItem)
+      .map(this.extractData)
+    .catch(this.handleErrorObservable);
+  }
+
   getAllUserGroups() {
     const url = this.controlPanelAccessService + 'getAllUserGroups';
     return this.http.get(url)
       .map((response: any) => response.json())
     .catch(error => Observable.throw(error.json()));
+  }
+
+  addNewUsergroup(newGroup: UserGroup): Observable<any> {
+    const url = this.controlPanelAccessService + 'addNewUserGroup';
+    console.log(newGroup);
+    return this.http.post(url, newGroup)
+      .map(this.extractData)
+    .catch(this.handleErrorObservable);
   }
 
   getAllUnAssignedUsers() {
@@ -86,13 +131,27 @@ export class ControlPanelAccessService {
     const url = this.controlPanelAccessService + 'getAllAssignedUsers';
     return this.http.get(url)
       .map((response: any) => response.json())
-      .catch(error => Observable.throw(error()));
+    .catch(error => Observable.throw(error()));
   }
 
   getUserGroupById(groupId: string) {
     const url = `${this.controlPanelAccessService}getUserGroupById/${groupId}`;
     return this.http.get(url)
       .map((response: any) => response.json())
-      .catch(error => Observable.throw(error()));
+    .catch(error => Observable.throw(error()));
   }
+
+  extractData(res: Response) {
+    const body = res.json();
+    console.log(body);
+    return body || {};
+  }
+
+  handleErrorObservable (error: Response | any) {
+    console.error(error.message || error);
+    return Observable.throw(error.message || error);
+  }
+
+
+
 }

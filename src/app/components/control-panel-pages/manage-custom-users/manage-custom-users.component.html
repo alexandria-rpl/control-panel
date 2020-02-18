@@ -24,8 +24,8 @@
           </mat-form-field>
           <div class="mat-card-text">Or</div>
           <mat-form-field>
-            <mat-select placeholder="Select Existing User">
-              <mat-option>Existing User 1</mat-option>
+            <mat-select #selecteduser (selectionChange)="showUserChangeDialog(selecteduser.value)" placeholder="Select Existing User">
+              <mat-option *ngFor="let user of users" [value]="user">{{user.userName}}</mat-option>
             </mat-select>
           </mat-form-field>
         </mat-card-content>

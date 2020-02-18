@@ -5,6 +5,7 @@ import {ControlPanelAccessService} from '../../../services/control-panel-access-
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import {Privilege} from '../../../interfaces/control-panel-access/privilege.interface';
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-manage-privileges',
   templateUrl: './manage-privileges.component.html',
@@ -20,11 +21,14 @@ export class ManagePrivilegesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
+  private errorMessage: any;
 
   constructor(private controlPanelAccessService: ControlPanelAccessService,
               private changeDetectorRef: ChangeDetectorRef) { }
 
   private privileges: Privilege[];
+  privilegeName: string = null;
+  privilegeDescription: string = null;
 
   ngOnInit() {
     this.getPrivileges();
@@ -57,5 +61,25 @@ export class ManagePrivilegesComponent implements OnInit {
 
   deleteConfirmation(element: Privilege) {
 
+  }
+
+  onSubmit(newPrivilegeForm: NgForm) {
+    let newPrivilege: Privilege = null;
+
+    if (newPrivilegeForm.valid) {
+      newPrivilege = newPrivilegeForm.value;
+      this.controlPanelAccessService.addNewPrivilege(newPrivilege)
+        .subscribe(response => {
+      }, (err) => {
+          this.errorMessage = err;
+      }, () => {
+          this.getPrivileges();
+          this.resetForm(newPrivilegeForm);
+      });
+    }
+  }
+
+  resetForm(newPrivilegeForm: NgForm) {
+    newPrivilegeForm.resetForm();
   }
 }

@@ -19,17 +19,32 @@
           <mat-card-title>Add New Privilege</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+          <form #newPrivilegeForm="ngForm" (ngSubmit)="newPrivilegeForm">
           <mat-form-field>
-            <input matInput class="create-input-field" placeholder="Privilege Name">
+            <input matInput class="create-input-field" placeholder="Privilege Name" required maxlength="40"
+                   [(ngModel)]="privilegeName" name="privilegeName"
+                   #pickedPrivilegeName="ngModel">
           </mat-form-field>
+            <div *ngIf="!pickedPrivilegeName.valid && pickedPrivilegeName.touched">
+              Privilege name is required!
+            </div>
           <mat-form-field>
-            <input matInput class="create-input-field" placeholder="Privilege Description">
+            <input matInput class="create-input-field" placeholder="Privilege Description" required maxlength="255"
+                  [(ngModel)]="privilegeDescription" name="privilegeDescription"
+                  #pickedPrivilegeDescription="ngModel">
           </mat-form-field>
+            <div *ngIf="!pickedPrivilegeDescription.valid && pickedPrivilegeDescription.touched">
+              Privilege description is required!
+            </div>
+          </form>
         </mat-card-content>
         <mat-card-actions>
-          <div class="col-sm-2">&nbsp;</div>
-          <div class="col-sm"><button mat-button>Add Privilege</button></div>
-          <div class="col-sm-2">&nbsp;</div>
+          <div class="row">
+          <div class="col-sm-1">&nbsp;</div>
+          <div class="col-sm"><button mat-button type="submit" [disabled]="!newPrivilegeForm.form.valid" (click)="onSubmit(newPrivilegeForm)">Add Privilege</button></div>
+          <div class="col-sm"><button mat-button type="reset" (click)="newPrivilegeForm.reset()">Reset</button></div>
+          <div class="col-sm-1"></div>
+          </div>
         </mat-card-actions>
       </mat-card>
     </div>

@@ -19,17 +19,32 @@
           <mat-card-title>Create New User Group</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+          <form #newGroupForm="ngForm" (ngSubmit)="onSubmit(newGroupForm)">
           <mat-form-field>
-            <input matInput class="create-input-field" placeholder="Group Name">
+            <input matInput class="create-input-field" placeholder="Group Name" required maxlength="40"
+            [(ngModel)]="groupName" name="groupName"
+            #pickedGroupName="ngModel">
           </mat-form-field>
+            <div *ngIf="!pickedGroupName.valid && pickedGroupName.touched">
+              Group name is required!
+            </div>
           <mat-form-field>
-            <input matInput class="create-input-field" placeholder="Group Description">
+            <input matInput class="create-input-field" placeholder="Group Description" required maxlength="255"
+            [(ngModel)]="groupDescription" name="groupDescription"
+            #pickedGroupDescription="ngModel">
           </mat-form-field>
+            <div *ngIf="!pickedGroupDescription.valid && pickedGroupDescription.touched">
+              Group description is required!
+            </div>
+        </form>
         </mat-card-content>
         <mat-card-actions>
-          <div class="col-sm-2">&nbsp;</div>
-          <div class="col-sm"><button mat-button>Add User Group</button></div>
-          <div class="col-sm-2">&nbsp;</div>
+          <div class="row">
+          <div class="col-sm-1">&nbsp;</div>
+          <div class="col-sm"><button mat-button type="submit" [disabled]="!newGroupForm.form.valid" (click)="onSubmit(newGroupForm)">Add User Group</button></div>
+            <div class="col-sm"><button mat-button type="reset" (click)="newGroupForm.reset()">Reset</button></div>
+          <div class="col-sm-1">&nbsp;</div>
+          </div>
         </mat-card-actions>
       </mat-card>
     </div>

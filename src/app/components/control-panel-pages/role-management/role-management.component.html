@@ -19,17 +19,32 @@
           <mat-card-title>Create New Role</mat-card-title>
         </mat-card-header>
         <mat-card-content>
+          <form #newRoleForm="ngForm" (ngSubmit)="onSubmit(newRoleForm)">
           <mat-form-field>
-            <input matInput class="create-input-field" placeholder="Role Name">
+            <input matInput class="create-input-field" placeholder="Role Name" required maxlength="40"
+                [(ngModel)]="roleName" name="roleName"
+                #pickedRoleName="ngModel">
           </mat-form-field>
+            <div *ngIf="!pickedRoleName.valid && pickedRoleName.touched">
+              Role name required!
+            </div>
           <mat-form-field>
-            <input matInput class="create-input-field" placeholder="Role Description">
+            <input matInput class="create-input-field" placeholder="Role Description" required maxlength="255"
+                [(ngModel)]="roleDescription" name="roleDescription"
+                #pickedRoleDescription="ngModel">
           </mat-form-field>
+            <div *ngIf="!pickedRoleDescription.valid && pickedRoleDescription.touched">
+              Role description required!
+            </div>
+          </form>
         </mat-card-content>
         <mat-card-actions>
-          <div class="col-sm-2">&nbsp;</div>
-          <div class="col-sm"><button mat-button>Create</button></div>
-          <div class="col-sm-2">&nbsp;</div>
+          <div class="row">
+          <div class="col-sm-1">&nbsp;</div>
+          <div class="col-sm"><button mat-button type="submit" [disabled]="!newRoleForm.form.valid" (click)="onSubmit(newRoleForm)">Create New Role</button></div>
+          <div class="col-sm"><button mat-button type="reset" (click)="newRoleForm.reset()">Reset</button></div>
+          <div class="col-sm-1">&nbsp;</div>
+          </div>
         </mat-card-actions>
       </mat-card>
     </div>

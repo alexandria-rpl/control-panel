@@ -6,6 +6,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import {UserGroup} from '../../../interfaces/control-panel-access/user-group.interface';
 import {Privilege} from '../../../interfaces/control-panel-access/privilege.interface';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-manage-user-groups',
@@ -27,6 +28,10 @@ export class ManageUserGroupsComponent implements OnInit {
               private changeDetectorRef: ChangeDetectorRef) { }
 
   private userGroups: UserGroup[];
+  private errorMessage;
+
+  groupName: string = null;
+  groupDescription: string = null;
 
   ngOnInit() {
     this.getAllUserGroups();
@@ -73,5 +78,25 @@ export class ManageUserGroupsComponent implements OnInit {
       returnValue = 'Yes';
       return returnValue;
     }
+  }
+
+  onSubmit(newGroupForm: NgForm) {
+    let newGroup: UserGroup = null;
+
+    if (newGroupForm.valid) {
+      newGroup = newGroupForm.value;
+      this.controlPanelAccessService.addNewUsergroup(newGroup)
+        .subscribe( response => {
+        }, (err) => {
+          this.errorMessage = err;
+        }, () => {
+          this.getAllUserGroups();
+          this.resetForm(newGroupForm);
+        });
+    }
+  }
+
+  resetForm(newGroupForm: NgForm) {
+    newGroupForm.resetForm();
   }
 }
