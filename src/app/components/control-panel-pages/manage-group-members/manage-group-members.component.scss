@@ -29,3 +29,10 @@
   font-weight: 400 !important;
   font-size: 1rem;
 }
+
+.unassigned-container {
+  max-height: 22em;
+  overflow-y: auto;
+  // overflow-y: scroll;
+  overflow-x: hidden;
+}
