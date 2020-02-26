@@ -1,3 +1,136 @@
-<p>
-  manage-menu-containers works!
-</p>
+<div class="row">&nbsp;</div>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col">
+    <div class="jumbotron-fluid">
+      <mat-card>
+       <mat-card-header>
+         <mat-card-title>Add New Menu Container</mat-card-title>
+       </mat-card-header>
+       <mat-card-content>
+         <form #newMenuContainerForm="ngForm" (ngSubmit)="onSubmit(newMenuContainerForm)">
+           <mat-form-field>
+             <input matInput class="create-input-field" placeholder="Container Name" required maxlength="255"
+                    [(ngModel)]="containerName" name="containerName"
+                    #newContainerName="ngModel">
+           </mat-form-field>
+           <div *ngIf="!newContainerName.valid && newContainerName.touched">
+             User name is required!
+           </div>
+           <mat-form-field>
+             <input matInput class="create-input-field" placeholder="Container Code Name (Ex: containerCodeName)" required maxlength="40"
+                    [(ngModel)]="containerCodeName" name="containerCodeName"
+                    #newContainerCodeName="ngModel">
+           </mat-form-field>
+           <div *ngIf="!newContainerCodeName.valid && newContainerCodeName.touched">
+             User name is required!
+           </div>
+           <mat-form-field>
+             <input matInput class="create-input-field" placeholder="Container Type" required maxlength="40"
+                    [(ngModel)]="containerType" name="containerType"
+                    #newContainerType="ngModel">
+           </mat-form-field>
+           <div *ngIf="!newContainerType.valid && newContainerType.touched">
+             User name is required!
+           </div>
+           <mat-form-field>
+             <mat-select placeholder="Active" [(ngModel)]="activeStatus" name="active" required #pickedActiveStatus="ngModel">
+               <mat-option *ngFor="let activeBool of booleanlist" [value]="activeBool.value">{{booleanToText(activeBool.value)}}</mat-option>
+             </mat-select>
+             <div *ngIf="newContainerName.touched && pickedActiveStatus.value == null">
+               Must specify if user is active/inactive!
+             </div>
+           </mat-form-field>
+           <mat-form-field>
+               <mat-select placeholder="Visible" [(ngModel)]="visibleStatus" name="active" required #pickedVisibleStatus="ngModel">
+                 <mat-option *ngFor="let activeBool of booleanlist" [value]="activeBool.value">{{booleanToText(activeBool.value)}}</mat-option>
+               </mat-select>
+               <div *ngIf="newContainerName.touched && pickedVisibleStatus.value == null">
+                 Must specify if user is active/inactive!
+               </div>
+           </mat-form-field>
+         </form>
+       </mat-card-content>
+       <mat-card-actions>
+         <div class="row">
+           <div class="col-sm-1">&nbsp;</div>
+           <div class="col-sm"><button mat-button type="submit" [disabled]="!newMenuContainerForm.form.valid" (click)="onSubmit(newMenuContainerForm)">Add Menu Container</button></div>
+           <div class="col-sm"><button mat-button type="reset" (click)="newMenuContainerForm.reset()">Reset</button></div>
+           <div class="col-sm-1">&nbsp;</div>
+         </div>
+       </mat-card-actions>
+     </mat-card>
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+<div class="row">
+  <div class="col-sm-1">&nbsp;</div>
+  <div class="col">
+    <div class="jumbotron">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      </mat-form-field>
+      <table mat-table class="full-width-table" [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--<ng-container matColumnDef = "_id">
+          <th mat-header-cell *matHeaderCellDef> Id</th>
+          <td mat-cell *matCellDef = "let element"> {{element._id}} </td>
+        </ng-container>-->
+        <ng-container matColumnDef="containerName">
+          <th mat-header-cell *matHeaderCellDef>Container Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.containerName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="containerCodeName">
+          <th mat-header-cell *matHeaderCellDef>Container Code Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.containerCodeName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="containerDescription">
+          <th mat-header-cell *matHeaderCellDef>Custom User</th>
+          <td mat-cell *matCellDef="let element"> {{element.containerDescription}} </td>
+        </ng-container>
+        <ng-container matColumnDef="containerType">
+          <th mat-header-cell *matHeaderCellDef>containerType</th>
+          <td mat-cell *matCellDef="let element"> {{element.containerType}} </td>
+        </ng-container>
+        <ng-container matColumnDef="isActive">
+          <th mat-header-cell *matHeaderCellDef>isActive</th>
+          <td mat-cell *matCellDef="let element"> {{booleanToText(element.isActive)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="isVisible">
+          <th mat-header-cell *matHeaderCellDef>isVisible</th>
+          <td mat-cell *matCellDef="let element"> {{booleanToText(element.isVisible)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>actions</th>
+          <td mat-cell *matCellDef="let element">
+            <fa-icon [icon]="faEdit" (click)="editRecord(element)"></fa-icon> &nbsp;<fa-icon [icon]="faTrash"
+                                                                                             (click)="deleteConfirmation(element)"></fa-icon>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator #paginator
+                     [pageIndex]="0"
+                     [pageSize]="5"
+                     [pageSizeOptions]="[5, 10, 25, 50, 100, 250]">
+      </mat-paginator>
+    </div>
+  </div>
+  <div class="col-sm-1">&nbsp;</div>
+</div>
+
+<br>
+<br>
+<br>

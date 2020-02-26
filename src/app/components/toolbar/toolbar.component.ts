@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { faUserCircle,
          faBars, } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { User } from '../../interfaces/control-panel-access/user.interface';
 import { UserLogin } from '../../interfaces/authentication/user-login.interface';
 import { ControlPanelAccessService } from '../../services/control-panel-access-service/control-panel-access.service';
+import {MenuContainer} from '../../interfaces/control-panel-access/menu-container.interface';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -19,16 +20,20 @@ export class ToolbarComponent implements OnInit {
   /* Creating var now, it will hold the
   user information from the authentication service */
   userLoggedIn: UserLogin;
+  private menuContainers: MenuContainer[];
 
   constructor(private controlPanelAccessService: ControlPanelAccessService,
-              private router: Router) { }
+              private router: Router,
+              private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit() {
     /* hard coding user for now to bypass authentication */
-    this.profile = {
+    /*this.profile = {
            _id: '5e41794c970c6027dcc705dc',
       userName: 'billybissic'
-    };
+    };*/
+
+    this.getAllMenuContainers();
   }
 
 
@@ -100,5 +105,16 @@ export class ToolbarComponent implements OnInit {
 
   routeToManageGroup() {
     this.router.navigateByUrl('control-panel/control-panel-access/user-group-management');
+  }
+
+  getAllMenuContainers() {
+    this.controlPanelAccessService.getMenuContainers()
+      .subscribe((menuContainerList: MenuContainer[]) => {
+        this.menuContainers = menuContainerList;
+        console.log(this.menuContainers);
+        this.changeDetectorRef.detectChanges();
+      }, (err) => {
+        console.log(err);
+      });
   }
 }

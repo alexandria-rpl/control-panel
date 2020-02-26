@@ -6,6 +6,9 @@
   <!--<mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
   <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>-->
 <div class="control-panel-menu">
+  <button mat-button *ngFor="let menuContainer of menuContainers">{{menuContainer.containerName}}</button>
+
+
   <button mat-button [matMenuTriggerFor]="users">Access Management</button>
 
   <mat-menu #users="matMenu">

@@ -7,6 +7,7 @@ import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
 import { ThreeDimensionalPrintingForm} from '../../interfaces/library-forms/three-dimensional-printing-form.interface';
 import {ThreeDimensionalPrintingColor} from '../../interfaces/static-data/three-dimensional-printing-color.interface';
+import { PatronInfo } from 'src/app/interfaces/patron-info/patron-info.interface';
 
 
 @Injectable({
@@ -39,6 +40,13 @@ export class LibraryFormsService {
     return this.http.get(url)
       .map((response: any) => response.json())
       .catch( error => Observable.throw(error.json()));
+  }
+
+  getPatronInfoByLibraryCard(libraryCard: string): Observable<PatronInfo> {
+    const url = this.libraryFormServices + '';
+    return this.http.get(url)
+      .map((response: any) => response.json())
+      .catch(error => Observable.throw(error.json()));
   }
 
   /* End 3d printing request forms */
