@@ -12,6 +12,8 @@ import { Branch } from '../../interfaces/control-panel-access/branch.interface';
 import { MenuItem } from '../../interfaces/control-panel-access/menu-item.interface';
 import {UserGroup} from '../../interfaces/control-panel-access/user-group.interface';
 import {MenuContainer} from '../../interfaces/control-panel-access/menu-container.interface';
+import {Menu} from '../../interfaces/control-panel-access/menu.interface';
+import {MenuGroup} from '../../interfaces/control-panel-access/menu-group.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -102,6 +104,20 @@ export class ControlPanelAccessService {
     return this.http.get(url)
       .map((response: any) => response.json())
       .catch(error => Observable.throw(error.json()));
+  }
+
+  getAllMenus(): Observable<Menu[]> {
+    const url = this.controlPanelAccessService + 'getAllMenus';
+    return this.http.get(url)
+      .map((response: any) => response.json())
+      .catch( error => Observable.throw(error.json()));
+  }
+
+  getAllMenuGroups(): Observable<MenuGroup[]> {
+    const url = this.controlPanelAccessService + 'getAllMenuGroups';
+    return this.http.get(url)
+      .map((response: any) => response.json())
+      .catch( error => Observable.throw(error.json()));
   }
 
   addNewMenuItem(menuItem: MenuItem): Observable<any> {

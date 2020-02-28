@@ -18,7 +18,7 @@ export class ManageMenuContainersComponent implements OnInit {
   faTrash = faTrash;
 
   dataSource: MatTableDataSource<MenuContainer>;
-  displayedColumns: string[] = ['containerName', 'containerCodeName',
+  displayedColumns: string[] = ['containerName', 'containerDisplayName',
     'containerDescription', 'containerType', 'isActive', 'isVisible', 'actions'];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -38,7 +38,7 @@ export class ManageMenuContainersComponent implements OnInit {
   visibleStatus: boolean;
   activeStatus: boolean;
   containerType: string;
-  containerCodeName: string;
+  containerDisplayName: string;
   containerName: string;
 
   ngOnInit() {

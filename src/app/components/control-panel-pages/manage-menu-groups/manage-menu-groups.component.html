@@ -1,3 +1,170 @@
-<p>
-  manage-menu-groups works!
-</p>
+<div class="row">&nbsp;</div>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col">
+    <div class="jumbotron-fluid">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Add New Menu Container</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form #newMenuForm="ngForm" (ngSubmit)="onSubmit(newMenuForm)">
+            <mat-form-field>
+              <input matInput class="create-input-field" placeholder="Menu Name (Ex: menuGroupName)" required maxlength="255"
+                     [(ngModel)]="menuGroupName" name="menuGroupName"
+                     #newMenuGroupName="ngModel">
+            </mat-form-field>
+            <div *ngIf="!newMenuGroupName.valid && newMenuGroupName.touched">
+              Menu name is required!
+            </div>
+            <mat-form-field>
+              <input matInput class="create-input-field" placeholder="Menu name to display (Ex: Menu Group Display Name)" required maxlength="40"
+                     [(ngModel)]="menuGroupDisplayName" name="menuGroupDisplayName"
+                     #newMenuGroupDisplayName="ngModel">
+            </mat-form-field>
+            <div *ngIf="!newMenuGroupDisplayName.valid && newMenuGroupDisplayName.touched">
+              Menu display name is required!
+            </div>
+            <mat-form-field>
+              <input matInput class="create-input-field" placeholder="Description (Ex: This menu is for...)" required maxlength="40"
+                     [(ngModel)]="menuGroupDescription" name="menuGroupDescription"
+                     #newMenuGroupDescription="ngModel">
+            </mat-form-field>
+            <div *ngIf="!newMenuGroupDescription.valid && newMenuGroupDescription.touched">
+              Menu description is required!
+            </div>
+            <!--<mat-form-field>
+              <input matInput class="create-input-field" placeholder="Warning (Ex: This menu should be restricted from normal users.)" required maxlength="40"
+                     [(ngModel)]="menuWarning" name="menuWarning"
+                     #newMenuWarning="ngModel">
+            </mat-form-field>
+            <div *ngIf="!newMenuWarning.valid && newMenuWarning.touched">
+              Menu warning is required!
+            </div>-->
+            <mat-form-field>
+              <input matInput type="number" class="create-input-field" placeholder="Menu placement." required maxlength="40"
+                     [(ngModel)]="menuPosition" name="menuPosition"
+                     #newMenuPosition="ngModel">
+            </mat-form-field>
+            <div *ngIf="!newMenuPosition.valid && newMenuPosition.touched">
+              Menu position is required!
+            </div>
+            <!--<mat-form-field>
+              <mat-select placeholder="Menu Containers" [(ngModel)]="menuContainer" name="menuContainer" required #menuContainerSelection="ngModel">
+                <mat-option *ngFor="let menuContainer of menuContainers" [value]="menuContainer._id">{{menuContainer.containerDisplayName}}</mat-option>
+              </mat-select>
+              <div *ngIf="newMenuName.touched && menuContainerSelection.value == null">
+                Must specify a parent menu container!
+              </div>
+            </mat-form-field>-->
+            <mat-form-field>
+              <mat-select placeholder="Active" [(ngModel)]="activeStatus" name="active" required #pickedActiveStatus="ngModel">
+                <mat-option *ngFor="let activeBool of booleanlist" [value]="activeBool.value">{{booleanToText(activeBool.value)}}</mat-option>
+              </mat-select>
+              <div *ngIf="newMenuGroupName.touched && pickedActiveStatus.value == null">
+                Must specify if user is active/inactive!
+              </div>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="Visible" [(ngModel)]="visibleStatus" name="visible" required #pickedVisibleStatus="ngModel">
+                <mat-option *ngFor="let activeBool of booleanlist" [value]="activeBool.value">{{booleanToText(activeBool.value)}}</mat-option>
+              </mat-select>
+              <div *ngIf="newMenuGroupName.touched && pickedVisibleStatus.value == null">
+                Must specify if user is active/inactive!
+              </div>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="row">
+            <div class="col-sm-1">&nbsp;</div>
+            <div class="col-sm"><button mat-button type="submit" [disabled]="!newMenuForm.form.valid" (click)="onSubmit(newMenuForm)">Add Menu</button></div>
+            <div class="col-sm"><button mat-button type="reset" (click)="newMenuForm.reset()">Reset</button></div>
+            <div class="col-sm-1">&nbsp;</div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+<div class="row">
+  <div class="col-sm-1">&nbsp;</div>
+  <div class="col">
+    <div class="jumbotron">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+      </mat-form-field>
+      <table mat-table class="full-width-table" [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--<ng-container matColumnDef = "_id">
+          <th mat-header-cell *matHeaderCellDef> Id</th>
+          <td mat-cell *matCellDef = "let element"> {{element._id}} </td>
+        </ng-container>-->
+        <ng-container matColumnDef="menuGroupName">
+          <th mat-header-cell *matHeaderCellDef>Menu Group Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.menuGroupName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="menuGroupDisplayName">
+          <th mat-header-cell *matHeaderCellDef>Display Name</th>
+          <td mat-cell *matCellDef="let element"> {{element.menuGroupDisplayName}} </td>
+        </ng-container>
+        <ng-container matColumnDef="menuGroupDescription">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let element"> {{element.menuGroupDescription}} </td>
+        </ng-container>
+        <!--<ng-container matColumnDef="menuWarning">
+          <th mat-header-cell *matHeaderCellDef>Menu Warning</th>
+          <td mat-cell *matCellDef="let element"> {{element.menuWarning}} </td>
+        </ng-container>-->
+        <ng-container matColumnDef="menuPosition">
+          <th mat-header-cell *matHeaderCellDef>Menu Position</th>
+          <td mat-cell *matCellDef="let element"> {{element.menuPosition}} </td>
+        </ng-container>
+        <!--<ng-container matColumnDef="menuContainerId">
+          <th mat-header-cell *matHeaderCellDef>Menu Container</th>
+          <td mat-cell *matCellDef="let element"> {{findContainerDisplayName(element.menuContainerId)}} </td>
+        </ng-container>-->
+        <ng-container matColumnDef="isActive">
+          <th mat-header-cell *matHeaderCellDef>Active</th>
+          <td mat-cell *matCellDef="let element"> {{booleanToText(element.active)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="isVisible">
+          <th mat-header-cell *matHeaderCellDef>Visible</th>
+          <td mat-cell *matCellDef="let element"> {{booleanToText(element.visible)}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <fa-icon [icon]="faEye" (click)="viewRecord(element)"></fa-icon> &nbsp;
+            <fa-icon [icon]="faEdit" (click)="editRecord(element)"></fa-icon> &nbsp;<fa-icon [icon]="faTrash"
+                                                                                             (click)="deleteConfirmation(element)"></fa-icon>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator #paginator
+                     [pageIndex]="0"
+                     [pageSize]="5"
+                     [pageSizeOptions]="[5, 10, 25, 50, 100, 250]">
+      </mat-paginator>
+    </div>
+  </div>
+  <div class="col-sm-1">&nbsp;</div>
+</div>
+
+<br>
+<br>
+<br>
+

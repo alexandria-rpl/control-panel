@@ -6,9 +6,20 @@
   <!--<mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
   <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>-->
 <div class="control-panel-menu">
-  <button mat-button *ngFor="let menuContainer of menuContainers">{{menuContainer.containerName}}</button>
+  <!-- menu container -->
+  <button mat-button *ngFor="let menuContainer of menuContainers" >{{menuContainer.containerDisplayName}}</button>
 
+  <!-- menu -->
+  <!--<mat-menu #menuContainer.menuContainerName="matMenu">
+    <button matt-button *ngFor="let menu of Menu"></button>
+  </mat-menu>-->
 
+  <!-- menu groups -->
+  <!--<mat-menu #menuGroup.menuName="mat-menu">
+
+  </mat-menu>-->
+
+  <!--/* Hard coded Menu Access Menu Pages */-->
   <button mat-button [matMenuTriggerFor]="users">Access Management</button>
 
   <mat-menu #users="matMenu">

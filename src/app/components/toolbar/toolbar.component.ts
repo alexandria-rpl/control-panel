@@ -6,6 +6,8 @@ import { User } from '../../interfaces/control-panel-access/user.interface';
 import { UserLogin } from '../../interfaces/authentication/user-login.interface';
 import { ControlPanelAccessService } from '../../services/control-panel-access-service/control-panel-access.service';
 import {MenuContainer} from '../../interfaces/control-panel-access/menu-container.interface';
+import {MenuItem} from '../../interfaces/control-panel-access/menu-item.interface';
+import {Menu} from '../../interfaces/control-panel-access/menu.interface';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -21,6 +23,8 @@ export class ToolbarComponent implements OnInit {
   user information from the authentication service */
   userLoggedIn: UserLogin;
   private menuContainers: MenuContainer[];
+  private menuItems: MenuItem[];
+  private menus: Menu[];
 
   constructor(private controlPanelAccessService: ControlPanelAccessService,
               private router: Router,
@@ -34,8 +38,21 @@ export class ToolbarComponent implements OnInit {
     };*/
 
     this.getAllMenuContainers();
+    this.getAllMenus();
+    this.getAllMenuItems();
   }
 
+
+  dyanmicRouter(menuItemId: string) {
+    let i;
+    if (this.menuItems !== null) {
+      for (i in this.menuItems) {
+        if (i._id === menuItemId) {
+          this.router.navigateByUrl(i.url);
+        }
+      }
+    }
+  }
 
   /* Hard coding pages that are required for system setup */
   /* Note: These pages can be added as menu items, but the router links cannot be changed! */
@@ -116,5 +133,30 @@ export class ToolbarComponent implements OnInit {
       }, (err) => {
         console.log(err);
       });
+  }
+
+  getAllMenuItems() {
+    this.controlPanelAccessService.getAllMenuItems()
+      .subscribe((menuItemList: MenuItem[]) => {
+        this.menuItems = menuItemList;
+        console.log(this.menuContainers);
+        this.changeDetectorRef.detectChanges();
+      }, (err) => {
+        console.log(err);
+      });
+  }
+
+  getAllMenus() {
+    this.controlPanelAccessService.getAllMenus()
+      .subscribe((menuList: Menu[]) => {
+        this.menus = menuList;
+        console.log(this.menus);
+      }, (err) => {
+        console.log(err);
+      });
+  }
+
+  getAllMenuGroups() {
+
   }
 }

@@ -99,6 +99,7 @@ import { ManageGroupMenuItemsComponent } from './components/control-panel-pages/
 import { ManageGroupMembersComponent } from './components/control-panel-pages/manage-group-members/manage-group-members.component';
 import { ManageCustomUserPrivilegesComponent } from './components/control-panel-pages/manage-custom-user-privileges/manage-custom-user-privileges.component';
 import { ManageControlPanelHomeComponent } from './components/control-panel-pages/manage-control-panel-home/manage-control-panel-home.component';
+import { MenuGroupDetailsComponent } from './components/extended-components/menu-group-details/menu-group-details.component';
 
 /* Router Linkage Goes Here */
 const appRoutes: Routes = [
@@ -166,7 +167,8 @@ const appRoutes: Routes = [
     ManageGroupMenuItemsComponent,
     ManageGroupMembersComponent,
     ManageCustomUserPrivilegesComponent,
-    ManageControlPanelHomeComponent
+    ManageControlPanelHomeComponent,
+    MenuGroupDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -237,7 +239,8 @@ const appRoutes: Routes = [
     LoginComponent,
     LogoutComponent,
     ReadMessageComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    MenuGroupDetailsComponent
   ]
 })
 
