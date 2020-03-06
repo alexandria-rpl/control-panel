@@ -1,0 +1,123 @@
+@import './../../../../sass/palettes';
+@import './../../../../sass/variables';
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Include non-theme styles for core.
+@include mat-core();
+
+.mat-form-field {
+  width: 100% !important;
+}
+.mat-table {
+  width: 100%;
+}
+.full-width-table {
+  width: 100%;
+}
+
+.mat-card {
+  width: 100%;
+}
+
+.mat-card-title {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial" !important;
+  font-weight: 400 !important;
+  color: $palette-libraryblue-500;
+  font-size: 2rem;
+  align-content: center;
+}
+
+.mat-dialog-actions {
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+}
+
+.mat-dialog-title {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial" !important;
+  font-weight: 400 !important;
+  color: $palette-libraryblue-500;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.menu-item-container-instructions, .menu-group-container-instructions {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-weight: 600;
+  color: $palette-librarydarkblue-500;
+  font-size: 1rem;
+  margin-left: .04em;
+  padding-top: 1em;
+  padding-bottom: .03em;
+}
+
+.menu-item-container-text, .menu-group-container-title {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-weight: 400;
+  color: $palette-librarydarkblue-500;
+  font-size: 1rem;
+  margin-left: .04em;
+}
+
+.group-name-label, .display-name-label, .description-label, .position-label {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-weight: 600;
+  color: $palette-librarydarkblue-500;
+  font-size: 1rem;
+  text-align: left;
+  padding-bottom: .3em;
+  padding-left: 1em;
+}
+
+.group-name-text, .display-name-text, .description-text, .position-text {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-weight: 400;
+  color: $palette-librarygray-900;
+  font-size: 1rem;
+  text-align: left;
+  padding-bottom: .3em;
+  margin-top: .01em;
+}
+
+.mat-button {
+  background-color: $palette-libraryblue-500;
+  color: white;
+  width: 100%;
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial" !important;
+  font-weight: 400 !important;
+  font-size: 1rem;
+}
+
+.menu-item-container, .menu-group-container {
+  overflow: scroll;
+  overflow-x:hidden;
+  overflow-y: visible;
+  max-height: 200px;
+  height: 200px;
+  border: 1px $palette-librarydarkblue-500 !important;
+  margin-left: .5em;
+}
+
+.group-menus-selected, .menu-items-selected {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-weight: 400;
+  color: $palette-librarydarkblue-500;
+  font-size: .8rem;
+  text-align: left;
+  padding-bottom: .2em;
+}
+
+.menu-list-text {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial" !important;
+  font-weight: normal !important;
+  color: $palette-librarygray-900 !important;
+  font-size: .8rem !important;
+  text-align: left !important;
+  padding-bottom: .3em !important;
+  margin-top: .2em !important;
+}
+
+
+.mat-list-text * {
+  font-size: .8em;
+}

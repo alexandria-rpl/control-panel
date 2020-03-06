@@ -16,12 +16,12 @@
     <div class="jumbotron-fluid">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Add New Menu Container</mat-card-title>
+          <mat-card-title>Add New Menu Group</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <form #newMenuForm="ngForm" (ngSubmit)="onSubmit(newMenuForm)">
             <mat-form-field>
-              <input matInput class="create-input-field" placeholder="Menu Name (Ex: menuGroupName)" required maxlength="255"
+              <input matInput class="create-input-field" placeholder="Group Name (Ex: menuGroupName)" required maxlength="255"
                      [(ngModel)]="menuGroupName" name="menuGroupName"
                      #newMenuGroupName="ngModel">
             </mat-form-field>
@@ -29,7 +29,7 @@
               Menu name is required!
             </div>
             <mat-form-field>
-              <input matInput class="create-input-field" placeholder="Menu name to display (Ex: Menu Group Display Name)" required maxlength="40"
+              <input matInput class="create-input-field" placeholder="Group name to display (Ex: Menu Group Display Name)" required maxlength="40"
                      [(ngModel)]="menuGroupDisplayName" name="menuGroupDisplayName"
                      #newMenuGroupDisplayName="ngModel">
             </mat-form-field>

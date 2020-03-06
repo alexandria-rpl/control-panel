@@ -107,7 +107,7 @@ const appRoutes: Routes = [
   { path: 'control-panel', component: ControlPanelHomeComponent, data: { title: 'Rapides Parish Library'} },
   { path: 'control-panel/printing-management/3D-printing-color-management', component: ThreeDimensionalPrintingColorsComponent },
   { path: 'control-panel/printing-management/3D-printing-management', component: ThreeDimensionalPrintingManagementComponent },
-  { path: 'control-panel/printing-management/3D-printing-form', component: ThreeDimensionalPrintingForm },
+  { path: 'control-panel/printing-management/3D-printing-form', component: ThreeDimensionalPrintingFormComponent },
   { path: 'control-panel/control-panel-access/role-management', component: RoleManagementComponent },
   { path: 'control-panel/control-panel-access/user-group-management', component: ManageUserGroupsComponent },
   { path: 'control-panel/control-panel-access/user-management', component: ManageUsersComponent },

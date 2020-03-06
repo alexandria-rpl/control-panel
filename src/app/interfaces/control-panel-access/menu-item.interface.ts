@@ -1,5 +1,7 @@
+import ObjectID from 'bson-objectid';
+
 export interface MenuItem {
-  _id: string;
+  menuItemId: number;
   menuItemName: string;
   menuItemDescription: string;
   componentName: string;

@@ -1,7 +1,8 @@
 import {MenuItem} from './menu-item.interface';
+import ObjectID from 'bson-objectid';
 
 export interface MenuGroup {
-  _id: string;
+  menuGroupId: number;
   menuGroupName: string;
   menuGroupDisplayName: string;
   menuGroupDescription: string;

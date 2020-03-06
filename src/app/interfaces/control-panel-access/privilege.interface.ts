@@ -1,5 +1,5 @@
 export interface Privilege {
-  _id: string;
+  privilegeId: number;
   privilegeName: string;
   privilegeDescription: string;
 }

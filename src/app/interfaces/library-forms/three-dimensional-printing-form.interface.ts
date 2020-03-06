@@ -1,5 +1,5 @@
 export interface ThreeDimensionalPrintingForm {
- _id: string;
+ threeDPrintingRequestId: number;
  patron_name: string;
  library_card: string;
  email: string;

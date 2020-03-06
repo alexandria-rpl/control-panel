@@ -1,4 +1,5 @@
 <div class="row"></div>
+<form #newPrintRequest="ngForm" (ngSubmit)="onSubmit(newPrintRequest)">
 <div class="jumbotron">
   <div class="printing-request-header">
     3D Printing Request Form
@@ -13,29 +14,44 @@
           <legend class="contact-legend">Contact Information</legend>
           <div class="row">
             <mat-form-field>
-              <input matInput placeholder="Name">
+              <input matInput placeholder="Name" [(ngModel)]="name" name="patronName" #typedName="ngModel" required maxlength="45">
             </mat-form-field>
+          </div>
+          <div class="label-warning" *ngIf="!typedName.valid && typedName.touched">
+            Your name is required!
           </div>
           <div class="row">
             <mat-form-field>
-              <input matInput placeholder="Library Card">
+              <input matInput placeholder="Library Card" [(ngModel)]="card" name="patronLibraryCard" #typedLibraryCard="ngModel" required maxlength="45">
             </mat-form-field>
+          </div>
+          <div class="label-warning" *ngIf="!typedLibraryCard.valid && typedLibraryCard.touched">
+            Your library card is required!
           </div>
           <div class="row">
             <mat-form-field>
-              <input matInput placeholder="Email Address">
+              <input matInput placeholder="Email Address" [(ngModel)]="email" name="patronEmail" #typedEmail="ngModel" required maxlength="45">
             </mat-form-field>
+          </div>
+          <div class="label-warning" *ngIf="!typedEmail.valid && typedEmail.touched">
+            Your email address is required!
           </div>
           <div class="row">
             <mat-form-field>
-              <input matInput placeholder="Telephone Number">
+              <input matInput placeholder="Telephone Number" [(ngModel)]="phone" name="patronPhone" #typedPhone="ngModel" required maxlength="10">
             </mat-form-field>
+          </div>
+          <div class="label-warning" *ngIf="!typedPhone.valid && typedPhone.touched">
+            Your phone number is required!
           </div>
           <div class="row">
             <div class="printing-tos">
-              <mat-checkbox>I agree that in submitting this file I am fully complying with any and all library rules and <a (click)="showTOS()">terms of
+              <mat-checkbox [(ngModel)]="tos" name="tosAgreement" #checkedStatus="ngModel" required>I agree that in submitting this file I am fully complying with any and all library rules and <a (click)="showTOS()">terms of
                 service</a> regarding my use of the 3D Printer.</mat-checkbox>
             </div>
+          </div>
+          <div class="label-warning" *ngIf="!checkedStatus.checked && typedName.touched && typedPhone.touched && typedLibraryCard.touched && typedEmail.touched">
+            You must agree to library terms of service!
           </div>
         </fieldset>
         <div class="row"></div>
@@ -50,6 +66,9 @@
               </mat-select>
             </mat-form-field>
           </div>
+          <div class="label-warning" *ngIf="!typedEmail.valid && typedEmail.touched">
+            *Note: Colors are based on availability.
+          </div>
           <div class="row">
             <div class="upload-field">
               <div class="row">
@@ -57,7 +76,7 @@
                 <label id="#bb" class="btn">
                   <fa-icon [icon]="faFolderOpen"></fa-icon>&nbsp;Choose File
                   <input type="file" file-upload multiple id="File"  [(ngModel)]="printUpload"
-                         (change)="onFileChanged($event)" [ngModelOptions]="{standalone: true}">
+                         (change)="onFileChanged($event)" [ngModelOptions]="{standalone: true}" #selectedFile="ngModel">
                 </label>
               </div>
               <div class="col-sm">
@@ -65,6 +84,9 @@
                     <input matInput disabled value="{{printUploadText}}">
                   </mat-form-field>
               </div>
+                <div class="label-warning" *ngIf="!selectedFile.untouched">
+                  You must add a file to print!
+                </div>
               </div>
             </div>
           </div>
@@ -83,7 +105,7 @@
         </div>
         <div class="row">
           <div class="submit-button">
-            <button mat-stroked-button (click)="submitPrintRequest()">Submit Request</button>
+            <button [disabled]="!newPrintRequest.valid" mat-stroked-button (click)="submitPrintRequest()">Submit Request</button>
           </div>
         </div>
         <div class="row">&nbsp;</div>
@@ -95,4 +117,4 @@
     <div class="col"></div>
   </div>
 </div>
-
+</form>

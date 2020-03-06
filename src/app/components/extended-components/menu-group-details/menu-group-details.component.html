@@ -1,47 +1,101 @@
 <h1 mat-dialog-title>Menu Group Details</h1>
 <div mat-dialog-content>
-  <div class="row">
-    Group Name: {{data.menuGroupName}}
+  <div class="row label-group">
+    <div class="group-name-label">Group Name:</div>
+    <div class="group-name-text">{{data.menuGroupName}}</div>
+  </div>
+  <div class="row label-group">
+    <div class="display-name-label">Display Name:</div>
+    <div class="display-name-text">&nbsp;{{data.menuGroupDisplayName}}</div>
+  </div>
+  <div class="row label-group">
+    <div class="description-label">Description:</div>
+    <div class="description-text">&nbsp;{{data.menuGroupDescription}}</div>
+  </div>
+  <div class="row label-group">
+    <div class="position-label">Position:</div>
+    <div class="position-text">&nbsp;{{data.menuPosition}}</div>
   </div>
   <div class="row">
-   Display Name : {{data.menuGroupDisplayName}}
-  </div>
-  <div class="row">
-   Description: {{data.menuGroupDescription}}
-  </div>
-  <div class="row">
-    Position: {{data.menuPosition}}
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="row">Select Menu Groups to Add</div>
-      Menu Groups
-  <mat-selection-list #shoes>
-    <mat-list-option *ngFor="let shoe of typesOfShoes">
-      {{shoe}}
-    </mat-list-option>
-  </mat-selection-list>
 
-  <p>
-    Options selected: {{shoes.selectedOptions.selected.length}}
-  </p>
-    </div>
     <div class="col">
-      <div class="row">Select Menu Items to Add</div>
-      Menu Items
-      <mat-selection-list #shoes>
-        <mat-list-option *ngFor="let shoe of typesOfShoes">
-          {{shoe}}
+      <div class="row menu-group-container-instructions">Select Menu Groups to Remove</div>
+      <div class="menu-group-container-title">Menu Groups</div>
+      <mat-selection-list #selectedExistingMenuGroups>
+        <mat-list-option *ngFor="let existingMenuGroup of existingMenuGroups">
+          {{existingMenuGroup.menuGroupDisplayName}}
         </mat-list-option>
       </mat-selection-list>
 
-      <p>
-        Options selected: {{shoes.selectedOptions.selected.length}}
+    <p class="group-menus-selected">
+      Group menus selected: {{selectedExistingMenuGroups.selectedOptions.selected.length}}
+    </p>
+    <div class="row">
+      <div class="col-sm"><button mat-button>Remove Selected</button></div>
+      <div class="col-sm"><button mat-button (click)="toggleButton('removeMenuGroupsButton', selectedExistingMenuGroups)">{{menuGroupsRemoveButtonText}}</button></div>
+    </div>
+    </div>
+
+    <div class="col">
+      <div class="row menu-item-container-instructions">Select Menu Items to Remove</div>
+      <div class="menu-item-container-text">Menu Items</div>
+      <mat-selection-list #selectedExistingMenuItems>
+        <mat-list-option *ngFor="let existingMenuItem of existingMenuItems">
+          {{existingMenuItem.menuItemName}}
+        </mat-list-option>
+      </mat-selection-list>
+
+    <p class="menu-items-selected">
+      Menu items selected: {{selectedExistingMenuItems.selectedOptions.selected.length}}
+    </p>
+    <div class="row">
+      <div class="col-sm"><button mat-button>Remove Selected</button></div>
+      <div class="col-sm"><button mat-button (click)="toggleButton('removeMenuItemsButton', selectedExistingMenuItems)">{{menuGroupItemsRemoveButtonText}}</button></div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row menu-group-container-instructions">Select Menu Groups to Add</div>
+      <div class="menu-group-container-title">Menu Groups</div>
+      <div class="menu-group-container">
+      <mat-selection-list #selectedMenuGroups>
+        <div *ngFor="let menuGroup of menuGroups">
+        <mat-list-option *ngIf="hideMeFromMenuGroupList(menuGroup)" [value]="menuGroup">
+          {{menuGroup.menuGroupDisplayName}}
+        </mat-list-option>
+        </div>
+      </mat-selection-list>
+      </div>
+      <p class="group-menus-selected">
+        Group menus selected: {{selectedMenuGroups.selectedOptions.selected.length}}
       </p>
+      <div class="row">
+        <div class="col-sm"><button mat-button>Add Selected</button></div>
+        <div class="col-sm"><button mat-button (click)="toggleButton('addMenuGroupsButton', selectedMenuGroups)">{{menuGroupsAddButtonText}}</button></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row menu-item-container-instructions">Select Menu Items to Add</div>
+      <div class="menu-item-container-text">Menu Items</div>
+        <div class="menu-item-container">
+          <mat-selection-list #selectedMenuItems [(ngModel)]="selectedItemsToAdd">
+          <mat-list-option *ngFor="let menuItem of menuItems" [value]="menuItem">
+            {{menuItem.menuItemName}}
+          </mat-list-option>
+        </mat-selection-list>
+        </div>
+        <p class="menu-items-selected">
+          Menu items selected: {{selectedMenuItems.selectedOptions.selected.length}}
+        </p>
+      <div class="row">
+      <div class="col-sm"><button mat-button (click)="addMenuItemToCurrentMenuGroup()">Add Selected</button></div>
+      <div class="col-sm"><button mat-button (click)="toggleButton('addMenuItemsButton', selectedMenuItems)">{{menuGroupItemsAddButtonText}}</button></div>
+      </div>
     </div>
   </div>
 </div>
 <div mat-dialog-actions>
   <!--<button mat-button (click)="onNoClick()">No Thanks</button>-->
-  <button mat-button [mat-dialog-close]="data.menuGroupName" cdkFocusInitial>Close</button>
+  <button mat-button [mat-dialog-close]="data.menuGroupName" cdkFocusInitial>Cancel</button>
 </div>

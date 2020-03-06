@@ -14,6 +14,9 @@ import {UserGroup} from '../../interfaces/control-panel-access/user-group.interf
 import {MenuContainer} from '../../interfaces/control-panel-access/menu-container.interface';
 import {Menu} from '../../interfaces/control-panel-access/menu.interface';
 import {MenuGroup} from '../../interfaces/control-panel-access/menu-group.interface';
+import ObjectID from 'bson-objectid';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -126,6 +129,16 @@ export class ControlPanelAccessService {
     return this.http.post(url, menuItem)
       .map(this.extractData)
     .catch(this.handleErrorObservable);
+  }
+
+  addItemsToExistingMenuGroup(_id: String, menuItems: MenuItem[]): Observable<any> {
+    const url = this.controlPanelAccessService + 'addItemsToExistingMenuGroup/' + _id;
+    console.log(url);
+    console.log(_id);
+    console.log(menuItems);
+    return this.http.post(url, menuItems)
+      .map(this.extractData)
+      .catch(this.handleErrorObservable);
   }
 
   getAllUserGroups() {

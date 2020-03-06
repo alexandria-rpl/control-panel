@@ -3,7 +3,7 @@ import {MenuItem} from './menu-item.interface';
 import {User} from './user.interface';
 
 export interface UserGroup {
-  _id: string;
+  userGroupId: number;
   groupName: string;
   groupDescription: string;
   users: User[];

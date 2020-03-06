@@ -1,5 +1,5 @@
 export interface User {
-  _id: string;
+  userId: number;
   userName: string;
   assigned: boolean;
   customUser: boolean;

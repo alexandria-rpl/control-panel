@@ -8,6 +8,9 @@ import { ControlPanelAccessService } from '../../services/control-panel-access-s
 import {MenuContainer} from '../../interfaces/control-panel-access/menu-container.interface';
 import {MenuItem} from '../../interfaces/control-panel-access/menu-item.interface';
 import {Menu} from '../../interfaces/control-panel-access/menu.interface';
+import {ThreeDimensionalPrintingColorsComponent} from '../control-panel-pages/three-dimensional-printing-colors/three-dimensional-printing-colors.component';
+import {ThreeDimensionalPrintingManagementComponent} from '../control-panel-pages/three-dimensional-printing-management/three-dimensional-printing-management.component';
+import {ThreeDimensionalPrintingForm} from '../../interfaces/library-forms/three-dimensional-printing-form';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -123,6 +126,18 @@ export class ToolbarComponent implements OnInit {
   routeToManageGroup() {
     this.router.navigateByUrl('control-panel/control-panel-access/user-group-management');
   }
+
+  routeToManageThreeDPrinting() {
+    this.router.navigateByUrl('control-panel/printing-management/3D-printing-management');
+  }
+
+  routeToThreeDPrintingColor() {
+    this.router.navigateByUrl('control-panel/printing-management/3D-printing-color-management');
+  }
+
+  routeToThreeDPrintingForm() {
+    this.router.navigateByUrl('control-panel/printing-management/3D-printing-form');
+}
 
   getAllMenuContainers() {
     this.controlPanelAccessService.getMenuContainers()

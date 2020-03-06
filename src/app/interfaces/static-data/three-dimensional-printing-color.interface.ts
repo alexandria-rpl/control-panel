@@ -1,5 +1,5 @@
 export interface ThreeDimensionalPrintingColor {
-  _id: string;
+  threeDPrintingColorId: number;
   color: string;
   hexValue: string;
 }

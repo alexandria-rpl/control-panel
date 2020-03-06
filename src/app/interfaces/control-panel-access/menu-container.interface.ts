@@ -1,7 +1,7 @@
 import {MenuGroup} from './menu-group.interface';
 
 export interface MenuContainer {
-  _id: string;
+  menuContainerId: number;
   containerName: string;
   containerDisplayName: string;
   containerDescription: string;

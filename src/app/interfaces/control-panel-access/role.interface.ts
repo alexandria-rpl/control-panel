@@ -1,7 +1,7 @@
 import { Privilege } from './privilege.interface';
 
 export interface Role {
-  _id: string;
+  roleId: number;
   roleName: string;
   roleDescription: string;
   privileges: Privilege[];

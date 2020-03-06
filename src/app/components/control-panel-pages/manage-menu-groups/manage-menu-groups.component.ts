@@ -95,8 +95,9 @@ export class ManageMenuGroupsComponent implements OnInit {
 
   viewRecord(element: MenuGroup): void {
       const dialogRef = this.dialog.open(MenuGroupDetailsComponent, {
-        width: '600px',
-        data: element
+        width: '1000px',
+        data: element,
+        disableClose: true
       });
 
     dialogRef.afterClosed().subscribe(result => {

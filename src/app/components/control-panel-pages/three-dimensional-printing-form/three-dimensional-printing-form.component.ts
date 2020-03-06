@@ -20,6 +20,11 @@ export class ThreeDimensionalPrintingFormComponent implements OnInit {
   printUploadText: any;
   selected: 'any';
   private patronInfo: PatronInfo;
+  name: any;
+  card: any;
+  email: any;
+  phone: any;
+  tos: any;
 
 
   constructor(private libraryFormsService: LibraryFormsService,

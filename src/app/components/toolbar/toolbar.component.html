@@ -6,6 +6,13 @@
   <!--<mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
   <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>-->
 <div class="control-panel-menu">
+
+  <button mat-button [matMenuTriggerFor]="threedprinting">3D Printing</button>
+  <mat-menu #threedprinting="matMenu">
+    <button mat-menu-item (click)="routeToThreeDPrintingColor()">3D Printing Colors</button>
+    <button mat-menu-item (click)="routeToThreeDPrintingForm()">3D Printing Form</button>
+    <button mat-menu-item (click)="routeToManageThreeDPrinting()">3D Printer Management</button>
+  </mat-menu>
   <!-- menu container -->
   <button mat-button *ngFor="let menuContainer of menuContainers" >{{menuContainer.containerDisplayName}}</button>
 
