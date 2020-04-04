@@ -76,10 +76,10 @@ export class MenuGroupDetailsComponent implements OnInit {
       return;
     } else {
       console.log(this.selectedItemsToAdd);
-      console.log(this.data._id);
+      console.log(this.data.menuGroupId);
       this.menuItemsToSubmit = this.selectedItemsToAdd;
       // this.ObjectIdToString(this.data._id);
-      this.controlPanelAccessService.addItemsToExistingMenuGroup(this.data._id, this.menuItemsToSubmit)
+      this.controlPanelAccessService.addItemsToExistingMenuGroup(this.data.menuGroupId, this.menuItemsToSubmit)
         .subscribe( response => {
       }, (err) => {
           this.errorMessage = err;
@@ -95,7 +95,7 @@ export class MenuGroupDetailsComponent implements OnInit {
     }
   }
 
-  hideAlreadyAddedMenuItems(element: MenuItem) {
+  hideMeFromItemList(element: MenuItem) {
 
   }
 

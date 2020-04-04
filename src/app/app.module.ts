@@ -48,6 +48,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
@@ -55,32 +58,11 @@ import { AppComponent } from './app.component';
 /* Site Components Goes Here */
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CallbackComponent } from './components/callback/callback.component';
-
-/* Site Modal Components */
-import { ModalComponent } from './modals/modal/modal.component';
-import { ModalCancelComponent } from './modals/modal-cancel/modal-cancel.component';
-import { ModalConfirmComponent } from './modals/modal-confirm/modal-confirm.component';
-import { ModalOkComponent } from './modals/modal-ok/modal-ok.component';
-import { ModalOkCancelComponent } from './modals/modal-ok-cancel/modal-ok-cancel.component';
-import { ModalVanillaComponent } from './modals/modal-vanilla/modal-vanilla.component';
-
-/* Site Modal Templates */
-import { DeleteConfirmationComponent } from './components/modal-templates/delete-confirmation/delete-confirmation.component';
-import { ErrorMessageComponent } from './components/modal-templates/error-message/error-message.component';
-import { LightboxComponent } from './components/modal-templates/lightbox/lightbox.component';
-import { LoginComponent } from './components/modal-templates/login/login.component';
-import { LogoutComponent } from './components/modal-templates/logout/logout.component';
-import { ReadMessageComponent } from './components/modal-templates/read-message/read-message.component';
-import { SendMessageComponent } from './components/modal-templates/send-message/send-message.component';
-
-/* Services */
-import { ModalCommunicationService } from './services/modal-communication-service/modal-communication.service';
-import { ComponentCommunicationService } from './services/component-communication-service/component-communication.service';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ThreeDimensionalPrintingColorsComponent } from './components/control-panel-pages/three-dimensional-printing-colors/three-dimensional-printing-colors.component';
-import {ThreeDimensionalPrintingManagementComponent} from './components/control-panel-pages/three-dimensional-printing-management/three-dimensional-printing-management.component';
+import { ThreeDimensionalPrintingManagementComponent } from './components/control-panel-pages/three-dimensional-printing-management/three-dimensional-printing-management.component';
 import { ThreeDimensionalPrintingFormComponent } from './components/control-panel-pages/three-dimensional-printing-form/three-dimensional-printing-form.component';
-import {ThreeDimensionalPrintingForm} from './interfaces/library-forms/three-dimensional-printing-form';
+import { ThreeDimensionalPrintingForm } from './interfaces/library-forms/three-dimensional-printing-form';
 import { RoleManagementComponent } from './components/control-panel-pages/role-management/role-management.component';
 import { ManageUserGroupsComponent } from './components/control-panel-pages/manage-user-groups/manage-user-groups.component';
 import { ManageUsersComponent } from './components/control-panel-pages/manage-users/manage-users.component';
@@ -100,6 +82,60 @@ import { ManageGroupMembersComponent } from './components/control-panel-pages/ma
 import { ManageCustomUserPrivilegesComponent } from './components/control-panel-pages/manage-custom-user-privileges/manage-custom-user-privileges.component';
 import { ManageControlPanelHomeComponent } from './components/control-panel-pages/manage-control-panel-home/manage-control-panel-home.component';
 import { MenuGroupDetailsComponent } from './components/extended-components/menu-group-details/menu-group-details.component';
+import { ThreeDimensionalTosComponent } from './components/extended-components/three-dimensional-tos/three-dimensional-tos.component';
+import { AssignedSubscribersTableComponent } from './components/control-panel-pages/subscriber-groups/assignedsubscribers-table/assigned-subscribers-table.component';
+/* Site Modal Components */
+import { ModalComponent } from './modals/modal/modal.component';
+import { ModalCancelComponent } from './modals/modal-cancel/modal-cancel.component';
+import { ModalConfirmComponent } from './modals/modal-confirm/modal-confirm.component';
+import { ModalOkComponent } from './modals/modal-ok/modal-ok.component';
+import { ModalOkCancelComponent } from './modals/modal-ok-cancel/modal-ok-cancel.component';
+import { ModalVanillaComponent } from './modals/modal-vanilla/modal-vanilla.component';
+import { ModalDeleteConfirmationComponent } from './library-modals/modal-delete-confirmation/modal-delete-confirmation.component';
+import { ModalErrorMessageComponent } from './library-modals/modal-error-message/modal-error-message.component';
+import { ModalLightboxComponent } from './library-modals/modal-lightbox/modal-lightbox.component';
+import { ModalLockComponent } from './library-modals/modal-lock/modal-lock.component';
+import { ModalLoginComponent } from './library-modals/modal-login/modal-login.component';
+import { ModalLogoutConfirmationComponent } from './library-modals/modal-logout-confirmation/modal-logout-confirmation.component';
+import { ModalSendMessageComponent } from './library-modals/modal-send-message/modal-send-message.component';
+import { ModalReadMessageComponent } from './library-modals/modal-read-message/modal-read-message.component';
+
+/* Site Modal Templates */
+import { DeleteConfirmationComponent } from './components/modal-templates/delete-confirmation/delete-confirmation.component';
+import { ErrorMessageComponent } from './components/modal-templates/error-message/error-message.component';
+import { LightboxComponent } from './components/modal-templates/lightbox/lightbox.component';
+import { LoginComponent } from './components/modal-templates/login/login.component';
+import { LogoutComponent } from './components/modal-templates/logout/logout.component';
+import { ReadMessageComponent } from './components/modal-templates/read-message/read-message.component';
+import { SendMessageComponent } from './components/modal-templates/send-message/send-message.component';
+import { LockComponent } from './components/modal-templates/lock/lock.component';
+
+/* Services */
+import { ModalCommunicationService } from './services/modal-communication-service/modal-communication.service';
+import { ComponentCommunicationService } from './services/component-communication-service/component-communication.service';
+import { ControlPanelAccessService } from './services/control-panel-access-service/control-panel-access.service';
+import { LibraryEventManagementService } from './services/library-event-management-service/library-event-management.service';
+import { LibraryFileUploadServiceService } from './services/library-file-upload-service/library-file-upload-service.service';
+import { LibraryFormsService } from './services/library-form-services/library-forms.service';
+import { LibraryEventReservationService } from './services/library-event-reservation-service/library-event-reservation.service';
+import { LibrarySettingsService } from './services/library-settings-service/library-settings.service';
+import { LibrarySubscriberService } from './services/library-subscriber-service/library-subscriber-service.service';
+import { SubscriberGroupsComponent } from './components/control-panel-pages/subscriber-groups/subscriber-groups.component';
+import { UnassignedsubscribersTableComponent } from './components/control-panel-pages/subscriber-groups/unassignedsubscribers-table/unassignedsubscribers-table.component';
+import { SubscribergroupsTableComponent } from './components/control-panel-pages/subscriber-groups/subscribergroups-table/subscribergroups-table.component';
+import { CreateSubscriberGroupComponent } from './components/control-panel-pages/subscriber-groups/create-subscriber-group/create-subscriber-group.component';
+import { EventCalendarComponent } from './components/control-panel-pages/event-manager/event-calendar/event-calendar.component';
+import { EventSchedulerComponent } from './components/control-panel-pages/event-manager/event-scheduler/event-scheduler.component';
+import { EventStaticDataComponent } from './components/control-panel-pages/event-manager/event-static-data/event-static-data.component';
+import { ManageCalendarHeadersComponent } from './components/control-panel-pages/manage-calendar-headers/manage-calendar-headers.component';
+import { ManageDisclaimerComponent } from './components/control-panel-pages/manage-legal-documents/manage-disclaimer/manage-disclaimer.component';
+import { ManagePrivacyPolicyComponent } from './components/control-panel-pages/manage-legal-documents/manage-privacy-policy/manage-privacy-policy.component';
+import { ManageTermsOfServiceComponent } from './components/control-panel-pages/manage-legal-documents/manage-terms-of-service/manage-terms-of-service.component';
+import { EnvironmentVariablesComponent } from './components/control-panel-pages/settings/environment-variables/environment-variables.component';
+import { SimpleContentService } from './services/content-management-service/simple-content.service';
+import {adapterFactory} from 'angular-calendar/date-adapters/date-fns';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 /* Router Linkage Goes Here */
 const appRoutes: Routes = [
@@ -168,7 +204,30 @@ const appRoutes: Routes = [
     ManageGroupMembersComponent,
     ManageCustomUserPrivilegesComponent,
     ManageControlPanelHomeComponent,
-    MenuGroupDetailsComponent
+    MenuGroupDetailsComponent,
+    ThreeDimensionalTosComponent,
+    AssignedSubscribersTableComponent,
+    UnassignedsubscribersTableComponent,
+    SubscribergroupsTableComponent,
+    CreateSubscriberGroupComponent,
+    ModalDeleteConfirmationComponent,
+    ModalErrorMessageComponent,
+    ModalLightboxComponent,
+    ModalLockComponent,
+    ModalLoginComponent,
+    ModalLogoutConfirmationComponent,
+    ModalReadMessageComponent,
+    ModalSendMessageComponent,
+    SubscriberGroupsComponent,
+    EventCalendarComponent,
+    EventSchedulerComponent,
+    EventStaticDataComponent,
+    ManageCalendarHeadersComponent,
+    ManageDisclaimerComponent,
+    ManagePrivacyPolicyComponent,
+    ManageTermsOfServiceComponent,
+    EnvironmentVariablesComponent,
+    LockComponent
   ],
   imports: [
     BrowserModule,
@@ -223,13 +282,28 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    ColorPickerModule,
+    NgbModule,
+    FlatpickrModule.forRoot(),
+    CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory
+  }),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true }),
   ],
   providers: [
     ComponentCommunicationService,
-    ModalCommunicationService
+    ModalCommunicationService,
+    ControlPanelAccessService,
+    LibraryEventManagementService,
+    LibraryFileUploadServiceService,
+    LibraryFormsService,
+    LibraryEventReservationService,
+    LibrarySettingsService,
+    LibrarySubscriberService,
+    SimpleContentService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
@@ -240,7 +314,16 @@ const appRoutes: Routes = [
     LogoutComponent,
     ReadMessageComponent,
     SendMessageComponent,
-    MenuGroupDetailsComponent
+    MenuGroupDetailsComponent,
+    ThreeDimensionalTosComponent,
+    ModalErrorMessageComponent,
+    ModalLightboxComponent,
+    ModalLockComponent,
+    ModalLoginComponent,
+    ModalLogoutConfirmationComponent,
+    ModalReadMessageComponent,
+    ModalSendMessageComponent,
+    ModalDeleteConfirmationComponent
   ]
 })
 

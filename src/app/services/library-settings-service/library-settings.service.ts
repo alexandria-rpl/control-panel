@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 import { ApplicationSettings } from '../../controllers/application-settings/application-settings';
 
 @Injectable()
-export class SettingsService {
+export class LibrarySettingsService {
   constructor(private http: Http) { }
 
   serverUrl = 'http://localhost:8080/api/ApplicationSettings/';

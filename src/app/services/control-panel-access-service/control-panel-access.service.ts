@@ -131,7 +131,7 @@ export class ControlPanelAccessService {
     .catch(this.handleErrorObservable);
   }
 
-  addItemsToExistingMenuGroup(_id: String, menuItems: MenuItem[]): Observable<any> {
+    addItemsToExistingMenuGroup(_id: number, menuItems: MenuItem[]): Observable<any> {
     const url = this.controlPanelAccessService + 'addItemsToExistingMenuGroup/' + _id;
     console.log(url);
     console.log(_id);

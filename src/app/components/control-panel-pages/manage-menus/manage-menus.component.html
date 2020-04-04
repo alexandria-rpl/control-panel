@@ -62,7 +62,7 @@
             </div>
             <mat-form-field>
               <mat-select placeholder="Menu Containers" [(ngModel)]="menuContainer" name="menuContainer" required #menuContainerSelection="ngModel">
-                <mat-option *ngFor="let menuContainer of menuContainers" [value]="menuContainer._id">{{menuContainer.containerDisplayName}}</mat-option>
+                <mat-option *ngFor="let menuContainer of menuContainers" [value]="menuContainer.menuContainerId">{{menuContainer.containerDisplayName}}</mat-option>
               </mat-select>
               <div *ngIf="newMenuName.touched && menuContainerSelection.value == null">
                 Must specify a parent menu container!

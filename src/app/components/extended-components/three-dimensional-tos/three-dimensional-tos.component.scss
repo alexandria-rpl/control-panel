@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Domine:400,700|Quando&display=swap');
+@import '../../../../sass/palettes';
+
+.library-title {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-size: 3.8rem;
+  color: $palette-libraryblue-500;
+}
+
+.tos-title {
+  font-family: "quando", sans-serif, "Tahoma", "Geneva", "Arial";
+  font-size: 2.4rem;
+  color: $palette-libraryblue-500;
+}
+
+.tos-note {
+  display: inline-block;
+  /*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
+  font-size: 1rem;
+  line-height: 1.1rem;
+}
+
+.mat-list-item {
+  display: inline-block;
+  /*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
+  font-size: 1rem;
+  line-height: 1.1rem;
+}
+
+.fa-icon {
+  font-size: .6rem;
+}

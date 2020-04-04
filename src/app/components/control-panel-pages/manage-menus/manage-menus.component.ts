@@ -106,11 +106,11 @@ export class ManageMenusComponent implements OnInit {
 
   }
 
-  findContainerDisplayName(containerId: string) {
+  findContainerDisplayName(containerId: number) {
     if (this.menuContainers !== null) {
       let i;
       for ( i in this.menuContainers) {
-        if (this.menuContainers[i]._id === containerId) {
+        if (this.menuContainers[i].menuContainerId === containerId) {
           return this.menuContainers[i].containerDisplayName;
         }
       }

@@ -3,6 +3,8 @@ import { faFolderOpen, faUpload, faTrashAlt } from '@fortawesome/free-solid-svg-
 import {ThreeDimensionalPrintingColor} from '../../../interfaces/static-data/three-dimensional-printing-color.interface';
 import {LibraryFormsService} from '../../../services/library-form-services/library-forms.service';
 import { PatronInfo } from '../../../interfaces/patron-info/patron-info.interface';
+import {ThreeDimensionalTosComponent} from '../../extended-components/three-dimensional-tos/three-dimensional-tos.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-three-dimensional-printing-form',
@@ -18,22 +20,25 @@ export class ThreeDimensionalPrintingFormComponent implements OnInit {
   printUpload: any;
   selectedFile: File;
   printUploadText: any;
-  selected: 'any';
+  selectedColor: 'any';
   private patronInfo: PatronInfo;
   name: any;
   card: any;
   email: any;
   phone: any;
   tos: any;
+  uploading: boolean;
 
 
   constructor(private libraryFormsService: LibraryFormsService,
-              private changeDetectorRef: ChangeDetectorRef) { }
+              private changeDetectorRef: ChangeDetectorRef,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     /* get printing color list */
     this.getPrintingColors();
     this.printUploadText = 'No file chosen...';
+    this.uploading = false;
   }
 
   uploadPrint() {
@@ -51,6 +56,9 @@ export class ThreeDimensionalPrintingFormComponent implements OnInit {
     } else {
       this.printUploadText = this.selectedFile.name;
     }
+
+    this.uploading = true;
+
   }
 
   getPrintingColors() {
@@ -78,6 +86,14 @@ export class ThreeDimensionalPrintingFormComponent implements OnInit {
       });
   }
   submitPrintRequest() {
+    console.log(this.name);
+    console.log(this.card);
+    console.log(this.email);
+    console.log(this.phone);
+    console.log(this.selectedColor);
+    console.log(this.selectedFile);
+
+    this.showTOS();
       /* get form values */
       /* get Patron info */
 
@@ -86,7 +102,15 @@ export class ThreeDimensionalPrintingFormComponent implements OnInit {
       /* check if moneyOwed is >= 25.00 */
   }
 
-  showTOS() {
+  showTOS(): void {
+    const dialogRef = this.dialog.open(ThreeDimensionalTosComponent, {
+      width: '1000px',
+      disableClose: true
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
   }
 }

@@ -1,5 +1,5 @@
 <div class="row"></div>
-<form #newPrintRequest="ngForm" (ngSubmit)="onSubmit(newPrintRequest)">
+<form #newPrintRequest="ngForm" (ngSubmit)="submitPrintRequest()">
 <div class="jumbotron">
   <div class="printing-request-header">
     3D Printing Request Form
@@ -44,25 +44,25 @@
           <div class="label-warning" *ngIf="!typedPhone.valid && typedPhone.touched">
             Your phone number is required!
           </div>
-          <div class="row">
+          <!--<div class="row">
             <div class="printing-tos">
-              <mat-checkbox [(ngModel)]="tos" name="tosAgreement" #checkedStatus="ngModel" required>I agree that in submitting this file I am fully complying with any and all library rules and <a (click)="showTOS()">terms of
+              <mat-checkbox [(ngModel)]="tos" name="tosAgreement" #checkedStatus="ngModel" required color="primary">I agree that in submitting this file I am fully complying with any and all library rules and <a (click)="showTOS()" class="tos">terms of
                 service</a> regarding my use of the 3D Printer.</mat-checkbox>
             </div>
           </div>
           <div class="label-warning" *ngIf="!checkedStatus.checked && typedName.touched && typedPhone.touched && typedLibraryCard.touched && typedEmail.touched">
             You must agree to library terms of service!
-          </div>
+          </div>-->
         </fieldset>
         <div class="row"></div>
         <fieldset class="model-fieldset">
           <legend class="model-legend">Model Information</legend>
           <div class="row">
             <mat-form-field>
-              <mat-select [(value)]="selected" placeholder="Preferred Color">
+              <mat-select [(value)]="selectedColor" placeholder="Preferred Color">
                 <mat-option value="any">Any</mat-option>
                 <mat-option value="option" *ngFor="let printingColor of printingColorList"
-                            [value]="printingColor._id">{{printingColor.color}}</mat-option>
+                            [value]="printingColor.color">{{printingColor.color}}</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -84,6 +84,9 @@
                     <input matInput disabled value="{{printUploadText}}">
                   </mat-form-field>
               </div>
+
+                <mat-progress-bar mode="indeterminate" *ngIf="uploading"></mat-progress-bar>
+
                 <div class="label-warning" *ngIf="!selectedFile.untouched">
                   You must add a file to print!
                 </div>
