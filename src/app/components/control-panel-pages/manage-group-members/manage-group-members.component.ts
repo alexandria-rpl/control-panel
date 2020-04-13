@@ -51,7 +51,7 @@ export class ManageGroupMembersComponent implements OnInit {
       });
   }
 
-  private getGroupInformation(group: UserGroup) {
+  public getGroupInformation(group: UserGroup) {
     this.currentUserGroup = group;
     this.assignedUsers = this.currentUserGroup.users;
   }

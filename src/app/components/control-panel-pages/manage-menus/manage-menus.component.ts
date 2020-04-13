@@ -25,7 +25,7 @@ export class ManageMenusComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  private menuContainers: MenuContainer[];
+  public menuContainers: MenuContainer[];
   private container: MenuContainer;
 
   constructor(private controlPanelAccessService: ControlPanelAccessService,
@@ -33,7 +33,7 @@ export class ManageMenusComponent implements OnInit {
 
   private menus: Menu[];
   private errorMessage;
-  private booleanlist: BooleanList[] = [
+  booleanlist: BooleanList[] = [
     {name: 'True', value: true},
     {name: 'False', value: false}
   ];

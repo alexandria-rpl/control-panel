@@ -159,6 +159,9 @@ const appRoutes: Routes = [
   { path: 'control-panel/control-panel-access/group-role-management', component: ManageGroupRolesComponent },
   { path: 'control-panel/control-panel-access/group-menu-item-management', component: ManageGroupMenuItemsComponent },
   { path: 'control-panel/control-panel-access/group-member-management', component: ManageGroupMembersComponent },
+  { path: 'control-panel/calendar/event-calendar', component: EventCalendarComponent },
+  { path: 'control-panel/calendar/event-static-data', component: EventStaticDataComponent },
+  { path: 'control-panel/calendar/event-scheduler', component: EventSchedulerComponent },
   { path: '', redirectTo: '/control-panel', pathMatch: 'full' },
   { path: 'home', redirectTo: '/control-panel', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

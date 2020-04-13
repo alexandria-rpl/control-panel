@@ -73,6 +73,10 @@ export class ManageCustomUsersComponent implements OnInit {
 
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   booleanToText(value: Boolean): String {
     console.log(value);
     let returnValue = '';

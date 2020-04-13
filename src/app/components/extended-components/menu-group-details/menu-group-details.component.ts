@@ -12,8 +12,8 @@ import {ObjectID} from 'bson';
 })
 export class MenuGroupDetailsComponent implements OnInit {
 
-  private menuItems: MenuItem[];
-  private menuGroups: MenuGroup[];
+  menuItems: MenuItem[];
+  menuGroups: MenuGroup[];
   private menuItemsToSubmit: MenuItem[];
   existingMenuGroups: MenuGroup[];
   existingMenuItems: MenuItem[];

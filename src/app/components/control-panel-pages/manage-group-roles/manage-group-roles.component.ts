@@ -45,4 +45,7 @@ export class ManageGroupRolesComponent implements OnInit {
         console.log(err);
       });
   }
+
+  getGroupInformation(value: any) {
+  }
 }

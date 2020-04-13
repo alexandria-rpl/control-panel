@@ -26,7 +26,7 @@ export class ManageMenuItemsComponent implements OnInit {
   constructor(private controlPanelAccessService: ControlPanelAccessService,
               private changeDetectorRef: ChangeDetectorRef) { }
 
-  private menuItems: MenuItem[];
+  menuItems: MenuItem[];
 
   ngOnInit() {
     this.getAllMenuItems();

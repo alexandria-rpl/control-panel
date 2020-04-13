@@ -25,7 +25,7 @@ export class ToolbarComponent implements OnInit {
   /* Creating var now, it will hold the
   user information from the authentication service */
   userLoggedIn: UserLogin;
-  private menuContainers: MenuContainer[];
+  menuContainers: MenuContainer[];
   private menuItems: MenuItem[];
   private menus: Menu[];
 
@@ -65,6 +65,18 @@ export class ToolbarComponent implements OnInit {
 
   routeToUserGroupMenuItemManagement() {
     this.router.navigateByUrl('');
+  }
+
+  routeToEventCalendar() {
+    this.router.navigateByUrl('control-panel/calendar/event-calendar');
+  }
+
+  routeToEventScheduler() {
+    this.router.navigateByUrl('control-panel/calendar/event-scheduler');
+  }
+
+  routeToEventStaticData() {
+    this.router.navigateByUrl('control-panel/calendar/event-static-data');
   }
 
   routeToUserManagement() {

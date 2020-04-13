@@ -28,7 +28,7 @@ export class ManageMenuContainersComponent implements OnInit {
               private changeDetectorRef: ChangeDetectorRef) { }
 
   private menuContainers: MenuContainer[];
-  private booleanlist: BooleanList[] = [
+  booleanlist: BooleanList[] = [
     {name: 'True', value: true},
     {name: 'False', value: false}
   ];

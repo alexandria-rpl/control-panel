@@ -16,6 +16,12 @@
   <!-- menu container -->
   <button mat-button *ngFor="let menuContainer of menuContainers" >{{menuContainer.containerDisplayName}}</button>
 
+  <button mat-button [matMenuTriggerFor]="calendar">Calendar</button>
+  <mat-menu #calendar="matMenu">
+    <button mat-menu-item (click)="routeToEventCalendar()">Event Calendar</button>
+    <button mat-menu-item (click)="routeToEventScheduler()">Event Scheduler</button>
+    <button mat-menu-item (click)="routeToEventStaticData()">Event Static Data</button>
+  </mat-menu>
   <!-- menu -->
   <!--<mat-menu #menuContainer.menuContainerName="matMenu">
     <button matt-button *ngFor="let menu of Menu"></button>

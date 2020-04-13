@@ -34,7 +34,7 @@ export class ManageMenuGroupsComponent implements OnInit {
 
   private menuGroups: MenuGroup[];
   private errorMessage;
-  private booleanlist: BooleanList[] = [
+  booleanlist: BooleanList[] = [
     {name: 'True', value: true},
     {name: 'False', value: false}
   ];

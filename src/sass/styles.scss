@@ -52,3 +52,27 @@ h1, h2, h3, h4, h5 {
 .mat-accent .mat-pseudo-checkbox-checked, .mat-accent .mat-pseudo-checkbox-indeterminate, .mat-pseudo-checkbox-checked, .mat-pseudo-checkbox-indeterminate {
   background-color: $palette-libraryblue-500 !important;
 }
+
+%library-cal-day-badge {
+  background-color: $palette-libraryblue-500;
+}
+
+%library-cal-today-header {
+  background-color: $palette-librarygray-200;
+}
+
+.cal-month-view {
+  .cal-day-badge {
+    @extend %library-cal-day-badge;
+  }
+}
+
+.cal-week-view {
+  .cal-header.cal-today {
+    @extend %library-cal-today-header;
+  }
+  .cal-event {
+    background-color: $palette-librarygray-500;
+    border-color: $palette-librarygray-500;
+  }
+}

@@ -32,7 +32,7 @@ export class ManageUsersComponent implements OnInit {
   private users: User[];
   private errorMessage;
 
-  private booleanlist: BooleanList[] = [
+  booleanlist: BooleanList[] = [
     {name: 'True', value: true},
     {name: 'False', value: false}
   ];
