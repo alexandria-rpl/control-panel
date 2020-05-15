@@ -13,15 +13,15 @@
         <fieldset class="contact-fieldset">
           <legend class="contact-legend">Contact Information</legend>
           <div class="row">
-            <mat-form-field>
+            <mat-form-field class="mat-form-field-custom">
               <input matInput placeholder="Name" [(ngModel)]="name" name="patronName" #typedName="ngModel" required maxlength="45">
             </mat-form-field>
           </div>
           <div class="label-warning" *ngIf="!typedName.valid && typedName.touched">
             Your name is required!
           </div>
-          <div class="row">
-            <mat-form-field>
+          <div class="row" >
+            <mat-form-field class="mat-form-field-custom">
               <input matInput placeholder="Library Card" [(ngModel)]="card" name="patronLibraryCard" #typedLibraryCard="ngModel" required maxlength="45">
             </mat-form-field>
           </div>
@@ -29,7 +29,7 @@
             Your library card is required!
           </div>
           <div class="row">
-            <mat-form-field>
+            <mat-form-field class="mat-form-field-custom">
               <input matInput placeholder="Email Address" [(ngModel)]="email" name="patronEmail" #typedEmail="ngModel" required maxlength="45">
             </mat-form-field>
           </div>
@@ -37,7 +37,7 @@
             Your email address is required!
           </div>
           <div class="row">
-            <mat-form-field>
+            <mat-form-field class="mat-form-field-custom">
               <input matInput placeholder="Telephone Number" [(ngModel)]="phone" name="patronPhone" #typedPhone="ngModel" required maxlength="10">
             </mat-form-field>
           </div>
@@ -58,7 +58,7 @@
         <fieldset class="model-fieldset">
           <legend class="model-legend">Model Information</legend>
           <div class="row">
-            <mat-form-field>
+            <mat-form-field class="mat-form-field-custom">
               <mat-select [(value)]="selectedColor" placeholder="Preferred Color">
                 <mat-option value="any">Any</mat-option>
                 <mat-option value="option" *ngFor="let printingColor of printingColorList"
@@ -71,21 +71,36 @@
           </div>
           <div class="row">
             <div class="upload-field">
+              <mat-grid-list cols="2" rowHeight="1rem" >
+                <mat-grid-tile class="upload-btn-tile">
+                  <label id="#bb" class="btn">
+                    <fa-icon [icon]="faFolderOpen"></fa-icon>&nbsp;Choose File
+                    <input type="file" file-upload multiple id="File"  [(ngModel)]="printUpload"
+                           (change)="onFileChanged($event)" [ngModelOptions]="{standalone: true}" #selectedFile="ngModel">
+                  </label>
+                </mat-grid-tile>
+                <mat-grid-tile class="upload-input">
+                  <mat-form-field class="file-upload-text">
+                    <input matInput disabled value="{{printUploadText}}">
+                  </mat-form-field>
+                </mat-grid-tile>
+              </mat-grid-list>
+
               <div class="row">
-              <div class="col-sm-2">
+              <!--<div class="col-xs-2">
                 <label id="#bb" class="btn">
                   <fa-icon [icon]="faFolderOpen"></fa-icon>&nbsp;Choose File
                   <input type="file" file-upload multiple id="File"  [(ngModel)]="printUpload"
                          (change)="onFileChanged($event)" [ngModelOptions]="{standalone: true}" #selectedFile="ngModel">
                 </label>
-              </div>
-              <div class="col-sm">
+              </div>-->
+              <!--<div class="col-sm">
                   <mat-form-field class="file-upload-text">
                     <input matInput disabled value="{{printUploadText}}">
                   </mat-form-field>
-              </div>
+              </div>-->
 
-                <mat-progress-bar mode="indeterminate" *ngIf="uploading"></mat-progress-bar>
+               <!-- <mat-progress-bar mode="indeterminate" *ngIf="uploading"></mat-progress-bar> -->
 
                 <div class="label-warning" *ngIf="!selectedFile.untouched">
                   You must add a file to print!
@@ -94,7 +109,7 @@
             </div>
           </div>
           <div class="row">
-            <mat-form-field>
+            <mat-form-field class="mat-form-field-custom">
               <textarea matInput placeholder="Notes or Special Instructions"></textarea>
             </mat-form-field>
           </div>
@@ -106,9 +121,10 @@
           or that the duration of your print would be too long.
           </div>
         </div>
+        <div class="row">&nbsp;</div>
         <div class="row">
           <div class="submit-button">
-            <button [disabled]="!newPrintRequest.valid" mat-stroked-button (click)="submitPrintRequest()">Submit Request</button>
+            <button class="submit-button" [disabled]="!newPrintRequest.valid" mat-stroked-button (click)="submitPrintRequest()">Submit Request</button>
           </div>
         </div>
         <div class="row">&nbsp;</div>

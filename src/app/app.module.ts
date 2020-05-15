@@ -7,6 +7,7 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { HttpModule } from '@angular/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import {A11yModule} from '@angular/cdk/a11y';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {PortalModule} from '@angular/cdk/portal';
@@ -297,6 +298,7 @@ const appRoutes: Routes = [
       { enableTracing: true }),
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     ComponentCommunicationService,
     ModalCommunicationService,
     ControlPanelAccessService,
